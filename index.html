@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Portfólio profissional de desenvolvimento web."
+  >
+
+  <title>Meu Portfólio</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__content">
+      <a class="logo" href="#inicio" aria-label="Ir para o início">
+        &lt;Dev<span>.</span>&gt;
+      </a>
+
+      <button
+        class="menu-button"
+        id="menu-button"
+        type="button"
+        aria-label="Abrir menu"
+        aria-controls="navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navigation" id="navigation" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero__content">
+        <div class="hero__text">
+          <p class="hero__eyebrow">Olá, meu nome é</p>
+
+          <h1>
+            Seu Nome
+            <span>Desenvolvedor Web</span>
+          </h1>
+
+          <p class="hero__description">
+            Desenvolvo interfaces modernas, responsivas e aplicações web
+            focadas em desempenho, acessibilidade e experiência do usuário.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#projetos">
+              Ver projetos
+            </a>
+
+            <a class="button button--secondary" href="#contato">
+              Entrar em contato
+            </a>
+          </div>
+
+          <div class="api-status">
+            <span class="api-status__indicator" id="api-indicator"></span>
+            <span id="api-message">Verificando conexão com o backend...</span>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="code-card">
+            <div class="code-card__header">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <pre><code><span class="code-purple">const</span> developer = {
+  name: <span class="code-green">"Seu Nome"</span>,
+  role: <span class="code-green">"Full Stack"</span>,
+  skills: [
+    <span class="code-green">"HTML"</span>,
+    <span class="code-green">"CSS"</span>,
+    <span class="code-green">"JavaScript"</span>,
+    <span class="code-green">"Node.js"</span>
+  ],
+  available: <span class="code-blue">true</span>
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container about">
+        <div>
+          <p class="section__eyebrow">Sobre mim</p>
+          <h2 class="section__title">Transformando ideias em experiências digitais</h2>
+        </div>
+
+        <div class="about__text">
+          <p>
+            Sou desenvolvedor web e gosto de construir projetos que unam
+            design, organização e tecnologia.
+          </p>
+
+          <p>
+            Atualmente trabalho com HTML, CSS, JavaScript e Node.js,
+            desenvolvendo soluções completas do frontend ao backend.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alternative" id="habilidades">
+      <div class="container">
+        <p class="section__eyebrow">Tecnologias</p>
+        <h2 class="section__title">Minhas habilidades</h2>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <span class="skill-card__number">01</span>
+            <h3>HTML</h3>
+            <p>Estruturas semânticas, acessíveis e organizadas.</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-card__number">02</span>
+            <h3>CSS</h3>
+            <p>Layouts responsivos, animações e interfaces modernas.</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-card__number">03</span>
+            <h3>JavaScript</h3>
+            <p>Interatividade, consumo de APIs e lógica no navegador.</p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-card__number">04</span>
+            <h3>Node.js</h3>
+            <p>APIs, validações e desenvolvimento de serviços backend.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="container">
+        <p class="section__eyebrow">Portfólio</p>
+        <h2 class="section__title">Projetos em destaque</h2>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-card__image">
+              <span>Projeto 01</span>
+            </div>
+
+            <div class="project-card__content">
+              <div class="project-card__tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+
+              <h3>Nome do projeto</h3>
+
+              <p>
+                Uma breve descrição do projeto, seus objetivos e principais
+                funcionalidades.
+              </p>
+
+              <div class="project-card__links">
+                <a href="#" aria-label="Abrir demonstração do projeto">
+                  Ver projeto
+                </a>
+
+                <a href="#" aria-label="Abrir código do projeto">
+                  Código-fonte
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__image">
+              <span>Projeto 02</span>
+            </div>
+
+            <div class="project-card__content">
+              <div class="project-card__tags">
+                <span>Node.js</span>
+                <span>API</span>
+                <span>JavaScript</span>
+              </div>
+
+              <h3>Nome do projeto</h3>
+
+              <p>
+                Uma breve descrição do projeto, seus objetivos e principais
+                funcionalidades.
+              </p>
+
+              <div class="project-card__links">
+                <a href="#" aria-label="Abrir demonstração do projeto">
+                  Ver projeto
+                </a>
+
+                <a href="#" aria-label="Abrir código do projeto">
+                  Código-fonte
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato">
+      <div class="container contact__content">
+        <div>
+          <p class="section__eyebrow">Contato</p>
+          <h2 class="section__title">Vamos desenvolver algo juntos?</h2>
+
+          <p class="contact__description">
+            Envie uma mensagem para conversarmos sobre projetos,
+            oportunidades ou novas ideias.
+          </p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Digite seu nome"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="nome@exemplo.com"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Conte um pouco sobre o seu projeto"
+              required
+            ></textarea>
+          </div>
+
+          <button class="button button--primary" type="submit">
+            Enviar mensagem
+          </button>
+
+          <p class="form-feedback" id="form-feedback" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <p>
+        &copy; <span id="current-year"></span> Seu Nome.
+        Todos os direitos reservados.
+      </p>
+
+      <a href="#inicio">Voltar ao início</a>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

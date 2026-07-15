@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Login administrativo</title>
+
+  <link
+    rel="stylesheet"
+    href="./css/login.css"
+  >
+</head>
+
+<body>
+  <main class="login-page">
+    <section class="branding">
+      <div class="branding__content">
+        <a
+          class="logo"
+          href="./index.html"
+          aria-label="Voltar ao portfólio"
+        >
+          &lt;Dev<span>.</span>&gt;
+        </a>
+
+        <div>
+          <p class="eyebrow">
+            Área administrativa
+          </p>
+
+          <h1>
+            Gerencie suas mensagens em um só lugar.
+          </h1>
+
+          <p class="branding__description">
+            Acesse o painel para visualizar,
+            organizar e responder aos contatos
+            recebidos pelo seu portfólio.
+          </p>
+        </div>
+
+        <div class="security-info">
+          <span aria-hidden="true">✓</span>
+
+          <p>
+            Acesso protegido com autenticação JWT
+            e cookie seguro.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-area">
+      <div class="login-card">
+        <div class="login-card__heading">
+          <p class="eyebrow">
+            Bem-vindo
+          </p>
+
+          <h2>Entre na sua conta</h2>
+
+          <p>
+            Informe seu e-mail e senha para
+            acessar o painel.
+          </p>
+        </div>
+
+        <form
+          class="login-form"
+          id="login-form"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="email">
+              E-mail
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="admin@exemplo.com"
+              maxlength="254"
+              required
+            >
+
+            <small
+              class="field-error"
+              id="email-error"
+            ></small>
+          </div>
+
+          <div class="form-group">
+            <label for="password">
+              Senha
+            </label>
+
+            <div class="password-field">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Digite sua senha"
+                minlength="12"
+                maxlength="128"
+                required
+              >
+
+              <button
+                class="password-toggle"
+                id="password-toggle"
+                type="button"
+                aria-label="Mostrar senha"
+                aria-pressed="false"
+              >
+                Mostrar
+              </button>
+            </div>
+
+            <small
+              class="field-error"
+              id="password-error"
+            ></small>
+          </div>
+
+          <button
+            class="login-button"
+            id="login-button"
+            type="submit"
+          >
+            Entrar no painel
+          </button>
+
+          <p
+            class="form-feedback"
+            id="form-feedback"
+            role="alert"
+            aria-live="polite"
+          ></p>
+        </form>
+
+        <div class="api-status">
+          <span
+            class="api-status__indicator"
+            id="api-indicator"
+          ></span>
+
+          <span id="api-message">
+            Verificando servidor...
+          </span>
+        </div>
+
+        <a
+          class="back-link"
+          href="./index.html"
+        >
+          ← Voltar ao portfólio
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/login.js"></script>
+</body>
+</html>

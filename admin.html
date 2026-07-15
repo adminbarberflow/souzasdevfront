@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Painel administrativo</title>
+
+  <link
+    rel="stylesheet"
+    href="./css/admin.css"
+  >
+</head>
+
+<body>
+  <header class="admin-header">
+    <div class="container admin-header__content">
+      <a
+        href="./index.html"
+        class="logo"
+      >
+        &lt;Dev<span>.</span>&gt;
+      </a>
+
+      <div class="admin-user">
+        <div>
+          <strong id="admin-name">
+            Carregando...
+          </strong>
+
+          <span id="admin-email"></span>
+        </div>
+
+        <button
+          class="button button--secondary"
+          id="logout-button"
+          type="button"
+        >
+          Sair
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section id="dashboard-view">
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">
+            Caixa de entrada
+          </p>
+
+          <h1>
+            Mensagens recebidas
+          </h1>
+        </div>
+
+        <div class="filter">
+          <label for="status-filter">
+            Filtrar
+          </label>
+
+          <select id="status-filter">
+            <option value="">
+              Todas
+            </option>
+
+            <option value="new">
+              Novas
+            </option>
+
+            <option value="read">
+              Lidas
+            </option>
+
+            <option value="archived">
+              Arquivadas
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stats">
+        <article>
+          <span id="total-count">0</span>
+          <p>Total</p>
+        </article>
+
+        <article>
+          <span id="new-count">0</span>
+          <p>Novas</p>
+        </article>
+
+        <article>
+          <span id="read-count">0</span>
+          <p>Lidas</p>
+        </article>
+
+        <article>
+          <span id="archived-count">0</span>
+          <p>Arquivadas</p>
+        </article>
+      </div>
+
+      <p
+        id="dashboard-feedback"
+        class="feedback"
+        role="status"
+      ></p>
+
+      <div
+        class="messages"
+        id="messages-container"
+      ></div>
+    </section>
+  </main>
+
+  <script src="./js/admin.js"></script>
+</body>
+</html>
