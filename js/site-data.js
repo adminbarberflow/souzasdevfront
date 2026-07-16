@@ -13,69 +13,65 @@
   },
 
   hero: {
-    eyebrow: "Desenvolvimento web para negócios e projetos digitais",
-    titleStart: "Transformamos necessidades em",
-    titleHighlight: "soluções digitais.",
+    eyebrow: "Desenvolvimento web em constante evolução",
+    titleStart: "Construindo soluções digitais e",
+    titleHighlight: "evoluindo a cada projeto.",
     description:
-      "Criamos sites, landing pages, sistemas web e APIs personalizadas para apresentar negócios, organizar processos e fortalecer sua presença digital."
+      "Sou um desenvolvedor em formação contínua. Crio sites e sistemas web com dedicação, transparência e responsabilidade, aplicando meus estudos em projetos reais e ampliando minhas habilidades a cada novo desafio."
   },
-
   about: {
     eyebrow: "Sobre a Souzas Dev",
-    title: "Tecnologia aplicada a necessidades reais.",
+    title: "Aprendizado transformado em projetos reais.",
     paragraphs: [
-      "A Souzas Dev é uma marca de desenvolvimento web focada na criação de soluções digitais profissionais, organizadas e fáceis de usar.",
-      "Cada projeto é desenvolvido de acordo com a necessidade do cliente, unindo interface, programação, banco de dados e estratégia em uma solução preparada para crescer.",
-      "Nosso objetivo não é apenas entregar páginas bonitas, mas construir ferramentas que apresentem negócios, facilitem contatos e organizem processos."
+      "A Souzas Dev nasceu como um espaço para transformar estudos, ideias e desafios em experiências práticas de desenvolvimento web.",
+      "Estou construindo minha experiência por meio de projetos reais, estudando frontend, backend, APIs, bancos de dados e boas práticas de desenvolvimento.",
+      "Não pretendo transmitir que sei tudo. Meu compromisso é entender cada necessidade, pesquisar quando necessário, trabalhar dentro do que consigo entregar e evoluir continuamente com cada projeto."
     ]
   },
-
   stats: [
     {
-      value: "Responsivo",
-      label: "Experiência adaptada para celular, tablet e computador"
+      value: "Projetos reais",
+      label: "Conhecimento aplicado em soluções funcionais"
     },
     {
-      value: "Full Stack",
-      label: "Frontend, backend, APIs e banco de dados"
+      value: "Evolução contínua",
+      label: "Estudo e prática em cada novo desafio"
     },
     {
-      value: "Sob medida",
-      label: "Soluções desenvolvidas conforme cada necessidade"
+      value: "Transparência",
+      label: "Escopo, limitações e progresso comunicados com clareza"
     },
     {
-      value: "Evolutivo",
-      label: "Estrutura preparada para receber novas funcionalidades"
+      value: "Dedicação",
+      label: "Cuidado com cada etapa do desenvolvimento"
     }
   ],
-
   services: [
     {
       number: "01",
       title: "Sites institucionais",
       description:
-        "Sites profissionais para apresentar sua empresa, seus serviços, seus diferenciais e seus canais de contato."
+        "Sites responsivos para apresentar negócios, serviços, informações importantes e formas de contato."
     },
     {
       number: "02",
       title: "Landing pages",
       description:
-        "Páginas estratégicas para campanhas, produtos, serviços, captação de contatos e oportunidades comerciais."
+        "Páginas direcionadas à divulgação de serviços, campanhas, produtos e captação de contatos."
     },
     {
       number: "03",
-      title: "Sistemas web",
+      title: "Portfólios digitais",
       description:
-        "Painéis administrativos, áreas restritas e ferramentas personalizadas para organizar processos e informações."
+        "Portfólios personalizados para apresentar projetos, habilidades, experiências e identidade profissional."
     },
     {
       number: "04",
-      title: "APIs e integrações",
+      title: "Pequenas soluções web",
       description:
-        "Backends, bancos de dados, autenticação, formulários e comunicação entre diferentes sistemas e serviços."
+        "Formulários integrados, APIs, áreas administrativas e funcionalidades compatíveis com o escopo definido."
     }
   ],
-
   technologies: [
     {
       name: "HTML5",
@@ -159,6 +155,7 @@
     }
   ]
 };
+
 
 
 
