@@ -1,43 +1,670 @@
-﻿const API_URL = "http://localhost:3000";
+﻿import { siteData } from "./site-data.js";
 
-const menuButton = document.querySelector("#menu-button");
-const navigation = document.querySelector("#navigation");
-const navigationLinks = document.querySelectorAll(".navigation a");
-const currentYear = document.querySelector("#current-year");
-const apiIndicator = document.querySelector("#api-indicator");
-const apiMessage = document.querySelector("#api-message");
-const contactForm = document.querySelector("#contact-form");
-const formFeedback = document.querySelector("#form-feedback");
-const submitButton = contactForm.querySelector(
-  'button[type="submit"]'
-);
+const $ = (selector) =>
+  document.querySelector(selector);
+
+const $$ = (selector) =>
+  document.querySelectorAll(selector);
+
+const menuButton = $("#menu-button");
+const navigation = $("#navigation");
+const navigationLinks = $$(".navigation a[href^='#']");
+const header = $("#header");
+const scrollProgress = $("#scroll-progress");
+
+const contactForm = $("#contact-form");
+const contactSubmit = $("#contact-submit");
+const formFeedback = $("#form-feedback");
+const serviceStatus = $("#service-status");
+const serviceMessage = $("#service-message");
+
+function setText(selector, value) {
+  const element = $(selector);
+
+  if (element) {
+    element.textContent = value;
+  }
+}
+
+function createElement(
+  tagName,
+  className = "",
+  text = ""
+) {
+  const element =
+    document.createElement(tagName);
+
+  if (className) {
+    element.className = className;
+  }
+
+  if (text) {
+    element.textContent = text;
+  }
+
+  return element;
+}
+
+function populateMainContent() {
+  setText(
+    "#hero-eyebrow",
+    siteData.hero.eyebrow
+  );
+
+  setText(
+    "#hero-title-start",
+    siteData.hero.titleStart
+  );
+
+  setText(
+    "#hero-title-highlight",
+    siteData.hero.titleHighlight
+  );
+
+  setText(
+    "#hero-description",
+    siteData.hero.description
+  );
+
+  setText(
+    "#about-eyebrow",
+    siteData.about.eyebrow
+  );
+
+  setText(
+    "#about-title",
+    siteData.about.title
+  );
+
+  setText(
+    "#current-year",
+    new Date().getFullYear()
+  );
+
+  document.title =
+    `${siteData.brand} | Desenvolvimento Web`;
+}
+
+function renderAbout() {
+  const container = $("#about-text");
+  const fragment =
+    document.createDocumentFragment();
+
+  siteData.about.paragraphs.forEach(
+    (paragraph) => {
+      fragment.append(
+        createElement("p", "", paragraph)
+      );
+    }
+  );
+
+  container.replaceChildren(fragment);
+}
+
+function renderStats() {
+  const container = $("#stats-grid");
+  const fragment =
+    document.createDocumentFragment();
+
+  siteData.stats.forEach((stat) => {
+    const article =
+      createElement("article", "stat-card");
+
+    article.append(
+      createElement(
+        "strong",
+        "",
+        stat.value
+      ),
+      createElement(
+        "p",
+        "",
+        stat.label
+      )
+    );
+
+    fragment.append(article);
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function renderServices() {
+  const container = $("#services-grid");
+  const fragment =
+    document.createDocumentFragment();
+
+  siteData.services.forEach(
+    (service) => {
+      const article =
+        createElement(
+          "article",
+          "service-card reveal"
+        );
+
+      article.append(
+        createElement(
+          "span",
+          "service-card__number",
+          service.number
+        ),
+        createElement(
+          "h3",
+          "",
+          service.title
+        ),
+        createElement(
+          "p",
+          "",
+          service.description
+        ),
+        createElement(
+          "span",
+          "service-card__arrow",
+          "↗"
+        )
+      );
+
+      fragment.append(article);
+    }
+  );
+
+  container.replaceChildren(fragment);
+}
+
+function renderTechnologies() {
+  const container =
+    $("#technologies-list");
+
+  const fragment =
+    document.createDocumentFragment();
+
+  siteData.technologies.forEach(
+    (technology) => {
+      const item =
+        createElement(
+          "article",
+          "technology-item"
+        );
+
+      const icon =
+        createElement(
+          "i",
+          technology.icon
+        );
+
+      icon.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      const name =
+        createElement(
+          "strong",
+          "",
+          technology.name
+        );
+
+      item.append(icon, name);
+      fragment.append(item);
+    }
+  );
+
+  container.replaceChildren(fragment);
+}
+
+function createProjectLink(
+  label,
+  url,
+  className = ""
+) {
+  if (!url) {
+    return null;
+  }
+
+  const link =
+    createElement(
+      "a",
+      className,
+      label
+    );
+
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+
+  return link;
+}
+
+function renderProjects() {
+  const container = $("#projects-grid");
+
+  const fragment =
+    document.createDocumentFragment();
+
+  siteData.projects.forEach(
+    (project) => {
+      const article =
+        createElement(
+          "article",
+          "project-card reveal"
+        );
+
+      const visual =
+        createElement(
+          "div",
+          "project-card__visual"
+        );
+
+      const category =
+        createElement(
+          "span",
+          "project-card__category",
+          project.category
+        );
+
+      const iconWrapper =
+        createElement(
+          "div",
+          "project-card__icon"
+        );
+
+      const icon =
+        createElement(
+          "i",
+          project.icon
+        );
+
+      icon.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      iconWrapper.append(icon);
+
+      const visualTitle =
+        createElement(
+          "strong",
+          "project-card__visual-title",
+          project.title
+        );
+
+      visual.append(
+        category,
+        iconWrapper,
+        visualTitle
+      );
+
+      const content =
+        createElement(
+          "div",
+          "project-card__content"
+        );
+
+      const tags =
+        createElement(
+          "div",
+          "project-card__tags"
+        );
+
+      project.technologies.forEach(
+        (technology) => {
+          tags.append(
+            createElement(
+              "span",
+              "",
+              technology
+            )
+          );
+        }
+      );
+
+      const title =
+        createElement(
+          "h3",
+          "",
+          project.title
+        );
+
+      const description =
+        createElement(
+          "p",
+          "",
+          project.description
+        );
+
+      const actions =
+        createElement(
+          "div",
+          "project-card__actions"
+        );
+
+      const liveLink =
+        createProjectLink(
+          "Ver projeto ↗",
+          project.liveUrl,
+          "project-link project-link--primary"
+        );
+
+      const codeLink =
+        createProjectLink(
+          "Código no GitHub ↗",
+          project.codeUrl,
+          "project-link"
+        );
+
+      if (liveLink) {
+        actions.append(liveLink);
+      }
+
+      if (codeLink) {
+        actions.append(codeLink);
+      }
+
+      if (!liveLink && !codeLink) {
+        actions.append(
+          createElement(
+            "span",
+            "project-card__soon",
+            "Em breve"
+          )
+        );
+      }
+
+      content.append(
+        tags,
+        title,
+        description,
+        actions
+      );
+
+      article.append(
+        visual,
+        content
+      );
+
+      fragment.append(article);
+    }
+  );
+
+  container.replaceChildren(fragment);
+}
+
+function createContactLink(
+  label,
+  value,
+  href
+) {
+  if (!value) {
+    return null;
+  }
+
+  const link =
+    createElement(
+      "a",
+      "contact-link"
+    );
+
+  link.href = href;
+  link.target =
+    href.startsWith("http")
+      ? "_blank"
+      : "_self";
+
+  if (link.target === "_blank") {
+    link.rel = "noopener noreferrer";
+  }
+
+  link.append(
+    createElement("span", "", label),
+    createElement("strong", "", value)
+  );
+
+  return link;
+}
+
+function renderContactLinks() {
+  const container =
+    $("#contact-links");
+
+  const links = [
+    createContactLink(
+      "E-mail",
+      siteData.contact.email,
+      `mailto:${siteData.contact.email}`
+    ),
+
+    createContactLink(
+      "Localização",
+      siteData.contact.location,
+      "#contato"
+    ),
+
+    createContactLink(
+      "GitHub",
+      "Ver perfil",
+      siteData.contact.github
+    ),
+
+    createContactLink(
+      "LinkedIn",
+      "Conectar",
+      siteData.contact.linkedin
+    )
+  ].filter(Boolean);
+
+  container.replaceChildren(...links);
+}
+
+function renderSocials() {
+  const container =
+    $("#hero-socials");
+
+  const socials = [
+    {
+      label: "GitHub",
+      url: siteData.contact.github
+    },
+    {
+      label: "LinkedIn",
+      url: siteData.contact.linkedin
+    },
+    {
+      label: "E-mail",
+      url: siteData.contact.email
+        ? `mailto:${siteData.contact.email}`
+        : ""
+    }
+  ].filter((item) => item.url);
+
+  socials.forEach((social) => {
+    const link =
+      createElement(
+        "a",
+        "",
+        social.label
+      );
+
+    link.href = social.url;
+
+    if (social.url.startsWith("http")) {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
+
+    container.append(link);
+  });
+}
+
+function configureWhatsApp() {
+  const button =
+    $("#whatsapp-button");
+
+  if (!siteData.contact.whatsapp) {
+    button.hidden = true;
+    return;
+  }
+
+  const number =
+    siteData.contact.whatsapp.replace(
+      /\D/g,
+      ""
+    );
+
+  const message =
+    encodeURIComponent(
+      "Olá! Conheci a Souzas Dev pelo site e gostaria de conversar sobre um projeto."
+    );
+
+  button.href =
+    `https://wa.me/${number}?text=${message}`;
+
+  button.hidden = false;
+}
 
 function toggleMenu() {
-  const isOpen = navigation.classList.toggle("active");
+  const isOpen =
+    navigation.classList.toggle("active");
 
-  menuButton.classList.toggle("active", isOpen);
-  document.body.classList.toggle("menu-open", isOpen);
+  menuButton.classList.toggle(
+    "active",
+    isOpen
+  );
 
-  menuButton.setAttribute("aria-expanded", String(isOpen));
+  document.body.classList.toggle(
+    "menu-open",
+    isOpen
+  );
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    String(isOpen)
+  );
 
   menuButton.setAttribute(
     "aria-label",
-    isOpen ? "Fechar menu" : "Abrir menu"
+    isOpen
+      ? "Fechar menu"
+      : "Abrir menu"
   );
 }
 
 function closeMenu() {
   navigation.classList.remove("active");
   menuButton.classList.remove("active");
-  document.body.classList.remove("menu-open");
+  document.body.classList.remove(
+    "menu-open"
+  );
 
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Abrir menu");
+  menuButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  menuButton.setAttribute(
+    "aria-label",
+    "Abrir menu"
+  );
 }
 
-function showFormFeedback(message, type) {
+function updateHeader() {
+  const scrollTop =
+    window.scrollY;
+
+  header.classList.toggle(
+    "scrolled",
+    scrollTop > 20
+  );
+
+  const documentHeight =
+    document.documentElement.scrollHeight -
+    window.innerHeight;
+
+  const progress =
+    documentHeight > 0
+      ? (scrollTop / documentHeight) * 100
+      : 0;
+
+  scrollProgress.style.width =
+    `${progress}%`;
+}
+
+function initializeSectionNavigation() {
+  const sections =
+    $$("main section[id]");
+
+  const observer =
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          navigationLinks.forEach(
+            (link) => {
+              const target =
+                link.getAttribute("href");
+
+              link.classList.toggle(
+                "active",
+                target ===
+                  `#${entry.target.id}`
+              );
+            }
+          );
+        });
+      },
+      {
+        rootMargin:
+          "-35% 0px -55% 0px",
+        threshold: 0
+      }
+    );
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+}
+
+function initializeRevealAnimations() {
+  const elements =
+    $$(".reveal");
+
+  const observer =
+    new IntersectionObserver(
+      (entries, revealObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add(
+            "visible"
+          );
+
+          revealObserver.unobserve(
+            entry.target
+          );
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+  elements.forEach((element) => {
+    observer.observe(element);
+  });
+}
+
+function showFormFeedback(
+  message = "",
+  type = ""
+) {
   formFeedback.textContent = message;
-  formFeedback.className = "form-feedback";
+  formFeedback.className =
+    "form-feedback";
 
   if (type) {
     formFeedback.classList.add(type);
@@ -45,105 +672,173 @@ function showFormFeedback(message, type) {
 }
 
 function setFormLoading(isLoading) {
-  submitButton.disabled = isLoading;
-  submitButton.textContent = isLoading
+  contactSubmit.disabled = isLoading;
+
+  contactSubmit.innerHTML = isLoading
     ? "Enviando..."
-    : "Enviar mensagem";
+    : 'Enviar mensagem <span aria-hidden="true">↗</span>';
+}
+
+async function apiRequest(
+  path,
+  options = {}
+) {
+  const response = await fetch(
+    `${siteData.apiUrl}${path}`,
+    options
+  );
+
+  const data = await response
+    .json()
+    .catch(() => ({
+      message:
+        "O servidor retornou uma resposta inválida."
+    }));
+
+  if (!response.ok) {
+    const error = new Error(
+      data.message ||
+      "Não foi possível concluir a operação."
+    );
+
+    error.data = data;
+    throw error;
+  }
+
+  return data;
 }
 
 async function checkApiStatus() {
   try {
-    const response = await fetch(`${API_URL}/api/status`);
+    await apiRequest("/api/status");
 
-    if (!response.ok) {
-      throw new Error("O backend respondeu com erro.");
-    }
+    serviceStatus.className =
+      "service-status online";
 
-    const data = await response.json();
+    serviceMessage.textContent =
+      "Formulário disponível";
+  } catch {
+    serviceStatus.className =
+      "service-status offline";
 
-    apiIndicator.classList.add("online");
-    apiIndicator.classList.remove("offline");
-    apiMessage.textContent = data.message;
-  } catch (error) {
-    apiIndicator.classList.add("offline");
-    apiIndicator.classList.remove("online");
-    apiMessage.textContent = "Backend desconectado.";
-
-    console.error(error);
+    serviceMessage.textContent =
+      "Serviço temporariamente indisponível";
   }
 }
 
-async function handleContactForm(event) {
+async function handleContactSubmit(event) {
   event.preventDefault();
 
   showFormFeedback("");
-  setFormLoading(true);
 
-  const formData = new FormData(contactForm);
+  const formData =
+    new FormData(contactForm);
 
-  const contactData = {
-    name: formData.get("name")?.trim(),
-    email: formData.get("email")?.trim(),
-    message: formData.get("message")?.trim()
+  const contact = {
+    name:
+      formData.get("name")?.trim() || "",
+    email:
+      formData.get("email")?.trim() || "",
+    message:
+      formData.get("message")?.trim() || ""
   };
 
   if (
-    !contactData.name ||
-    !contactData.email ||
-    !contactData.message
+    contact.name.length < 2 ||
+    !contact.email ||
+    contact.message.length < 10
   ) {
     showFormFeedback(
-      "Preencha todos os campos.",
+      "Preencha corretamente todos os campos.",
       "error"
     );
 
-    setFormLoading(false);
     return;
   }
 
+  setFormLoading(true);
+
   try {
-    const response = await fetch(`${API_URL}/api/contact`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(contactData)
-    });
+    const data = await apiRequest(
+      "/api/contact",
+      {
+        method: "POST",
 
-    const data = await response.json();
+        headers: {
+          "Content-Type":
+            "application/json"
+        },
 
-    if (!response.ok) {
-      const validationMessages = data.errors
-        ? Object.values(data.errors).join(" ")
-        : data.message;
-
-      throw new Error(
-        validationMessages || "Não foi possível enviar a mensagem."
-      );
-    }
-
-    showFormFeedback(data.message, "success");
-    contactForm.reset();
-  } catch (error) {
-    showFormFeedback(
-      error.message || "Erro ao conectar com o servidor.",
-      "error"
+        body: JSON.stringify(contact)
+      }
     );
 
-    console.error(error);
+    showFormFeedback(
+      data.message,
+      "success"
+    );
+
+    contactForm.reset();
+  } catch (error) {
+    const validationMessages =
+      error.data?.errors
+        ? Object.values(
+            error.data.errors
+          ).join(" ")
+        : error.message;
+
+    showFormFeedback(
+      validationMessages ||
+        "Não foi possível enviar a mensagem.",
+      "error"
+    );
   } finally {
     setFormLoading(false);
   }
 }
 
-menuButton.addEventListener("click", toggleMenu);
+function initialize() {
+  populateMainContent();
+  renderAbout();
+  renderStats();
+  renderServices();
+  renderTechnologies();
+  renderProjects();
+  renderContactLinks();
+  renderSocials();
+  configureWhatsApp();
 
-navigationLinks.forEach((link) => {
-  link.addEventListener("click", closeMenu);
-});
+  menuButton.addEventListener(
+    "click",
+    toggleMenu
+  );
 
-contactForm.addEventListener("submit", handleContactForm);
+  navigationLinks.forEach((link) => {
+    link.addEventListener(
+      "click",
+      closeMenu
+    );
+  });
 
-currentYear.textContent = new Date().getFullYear();
+  contactForm.addEventListener(
+    "submit",
+    handleContactSubmit
+  );
 
-checkApiStatus();
+  window.addEventListener(
+    "scroll",
+    updateHeader,
+    {
+      passive: true
+    }
+  );
+
+  updateHeader();
+  initializeSectionNavigation();
+  initializeRevealAnimations();
+  checkApiStatus();
+}
+
+initialize();
+
+

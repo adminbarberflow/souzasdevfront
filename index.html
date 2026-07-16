@@ -10,18 +10,38 @@
 
   <meta
     name="description"
-    content="Portfólio profissional de desenvolvimento web."
+    content="Souzas Dev — desenvolvimento de sites, interfaces, sistemas web e APIs."
   >
 
-  <title>Meu Portfólio</title>
+  <meta name="theme-color" content="#080a12">
 
-  <link rel="stylesheet" href="./css/style.css">
+  <title>Souzas Dev | Desenvolvimento Web</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./css/style.css"
+  >
 </head>
 
 <body>
-  <header class="header">
+  <div
+    class="scroll-progress"
+    id="scroll-progress"
+    aria-hidden="true"
+  ></div>
+
+  <header class="header" id="header">
     <div class="container header__content">
-      <a class="logo" href="#inicio" aria-label="Ir para o início">
+      <a
+        class="logo"
+        href="#inicio"
+        aria-label="Souzas Dev — início"
+      >
         &lt;Dev<span>.</span>&gt;
       </a>
 
@@ -38,248 +58,397 @@
         <span></span>
       </button>
 
-      <nav class="navigation" id="navigation" aria-label="Navegação principal">
+      <nav
+        class="navigation"
+        id="navigation"
+        aria-label="Navegação principal"
+      >
         <a href="#inicio">Início</a>
         <a href="#sobre">Sobre</a>
-        <a href="#habilidades">Habilidades</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#tecnologias">Tecnologias</a>
         <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
+
+        <a
+          class="navigation__cta"
+          href="#contato"
+        >
+          Vamos conversar
+        </a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
+      <div class="hero__glow hero__glow--one"></div>
+      <div class="hero__glow hero__glow--two"></div>
+
       <div class="container hero__content">
-        <div class="hero__text">
-          <p class="hero__eyebrow">Olá, meu nome é</p>
+        <div class="hero__text reveal">
+          <div class="hero__badge">
+            <span></span>
+            <p id="hero-eyebrow"></p>
+          </div>
 
           <h1>
-            Seu Nome
-            <span>Desenvolvedor Web</span>
+            <span id="hero-title-start"></span>
+            <strong id="hero-title-highlight"></strong>
           </h1>
 
-          <p class="hero__description">
-            Desenvolvo interfaces modernas, responsivas e aplicações web
-            focadas em desempenho, acessibilidade e experiência do usuário.
-          </p>
+          <p
+            class="hero__description"
+            id="hero-description"
+          ></p>
 
           <div class="hero__actions">
-            <a class="button button--primary" href="#projetos">
-              Ver projetos
+            <a
+              class="button button--primary"
+              href="#projetos"
+            >
+              Conhecer projetos
+              <span aria-hidden="true">↗</span>
             </a>
 
-            <a class="button button--secondary" href="#contato">
-              Entrar em contato
+            <a
+              class="button button--secondary"
+              href="#contato"
+            >
+              Solicitar orçamento
             </a>
           </div>
 
-          <div class="api-status">
-            <span class="api-status__indicator" id="api-indicator"></span>
-            <span id="api-message">Verificando conexão com o backend...</span>
-          </div>
+          <div
+            class="hero__socials"
+            id="hero-socials"
+          ></div>
         </div>
 
-        <div class="hero__visual" aria-hidden="true">
-          <div class="code-card">
-            <div class="code-card__header">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-
-            <pre><code><span class="code-purple">const</span> developer = {
-  name: <span class="code-green">"Seu Nome"</span>,
-  role: <span class="code-green">"Full Stack"</span>,
-  skills: [
-    <span class="code-green">"HTML"</span>,
-    <span class="code-green">"CSS"</span>,
-    <span class="code-green">"JavaScript"</span>,
-    <span class="code-green">"Node.js"</span>
-  ],
-  available: <span class="code-blue">true</span>
-};</code></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sobre">
-      <div class="container about">
-        <div>
-          <p class="section__eyebrow">Sobre mim</p>
-          <h2 class="section__title">Transformando ideias em experiências digitais</h2>
-        </div>
-
-        <div class="about__text">
-          <p>
-            Sou desenvolvedor web e gosto de construir projetos que unam
-            design, organização e tecnologia.
-          </p>
-
-          <p>
-            Atualmente trabalho com HTML, CSS, JavaScript e Node.js,
-            desenvolvendo soluções completas do frontend ao backend.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alternative" id="habilidades">
-      <div class="container">
-        <p class="section__eyebrow">Tecnologias</p>
-        <h2 class="section__title">Minhas habilidades</h2>
-
-        <div class="skills-grid">
-          <article class="skill-card">
-            <span class="skill-card__number">01</span>
-            <h3>HTML</h3>
-            <p>Estruturas semânticas, acessíveis e organizadas.</p>
-          </article>
-
-          <article class="skill-card">
-            <span class="skill-card__number">02</span>
-            <h3>CSS</h3>
-            <p>Layouts responsivos, animações e interfaces modernas.</p>
-          </article>
-
-          <article class="skill-card">
-            <span class="skill-card__number">03</span>
-            <h3>JavaScript</h3>
-            <p>Interatividade, consumo de APIs e lógica no navegador.</p>
-          </article>
-
-          <article class="skill-card">
-            <span class="skill-card__number">04</span>
-            <h3>Node.js</h3>
-            <p>APIs, validações e desenvolvimento de serviços backend.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="projetos">
-      <div class="container">
-        <p class="section__eyebrow">Portfólio</p>
-        <h2 class="section__title">Projetos em destaque</h2>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-card__image">
-              <span>Projeto 01</span>
-            </div>
-
-            <div class="project-card__content">
-              <div class="project-card__tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
+        <div class="hero__visual reveal">
+          <div class="terminal-card">
+            <div class="terminal-card__header">
+              <div class="terminal-card__buttons">
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
 
-              <h3>Nome do projeto</h3>
+              <p>souzas-dev.js</p>
+            </div>
 
+            <div class="terminal-card__body">
               <p>
-                Uma breve descrição do projeto, seus objetivos e principais
-                funcionalidades.
+                <span class="code-purple">const</span>
+                <span class="code-blue">souzasDev</span>
+                =
+                <span class="code-yellow">{</span>
               </p>
 
-              <div class="project-card__links">
-                <a href="#" aria-label="Abrir demonstração do projeto">
-                  Ver projeto
-                </a>
-
-                <a href="#" aria-label="Abrir código do projeto">
-                  Código-fonte
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card__image">
-              <span>Projeto 02</span>
-            </div>
-
-            <div class="project-card__content">
-              <div class="project-card__tags">
-                <span>Node.js</span>
-                <span>API</span>
-                <span>JavaScript</span>
-              </div>
-
-              <h3>Nome do projeto</h3>
-
-              <p>
-                Uma breve descrição do projeto, seus objetivos e principais
-                funcionalidades.
+              <p class="code-indent">
+                foco:
+                <span class="code-green">
+                  "soluções digitais"
+                </span>,
               </p>
 
-              <div class="project-card__links">
-                <a href="#" aria-label="Abrir demonstração do projeto">
-                  Ver projeto
-                </a>
+              <p class="code-indent">
+                qualidade:
+                <span class="code-purple">true</span>,
+              </p>
 
-                <a href="#" aria-label="Abrir código do projeto">
-                  Código-fonte
-                </a>
-              </div>
+              <p class="code-indent">
+                responsivo:
+                <span class="code-purple">true</span>,
+              </p>
+
+              <p class="code-indent">
+                tecnologias:
+                <span class="code-yellow">[</span>
+              </p>
+
+              <p class="code-indent code-indent--two">
+                <span class="code-green">
+                  "HTML"
+                </span>,
+                <span class="code-green">
+                  "CSS"
+                </span>,
+              </p>
+
+              <p class="code-indent code-indent--two">
+                <span class="code-green">
+                  "JavaScript"
+                </span>,
+                <span class="code-green">
+                  "Node.js"
+                </span>
+              </p>
+
+              <p class="code-indent">
+                <span class="code-yellow">]</span>
+              </p>
+
+              <p>
+                <span class="code-yellow">}</span>;
+              </p>
+
+              <p class="terminal-card__cursor">
+                <span>&gt;</span>
+                criando experiências digitais
+                <i></i>
+              </p>
             </div>
-          </article>
+          </div>
+
+          <div class="floating-card floating-card--top">
+            <span>✓</span>
+
+            <div>
+              <strong>Design responsivo</strong>
+              <p>Desktop, tablet e mobile</p>
+            </div>
+          </div>
+
+          <div class="floating-card floating-card--bottom">
+            <span>↗</span>
+
+            <div>
+              <strong>Performance</strong>
+              <p>Experiências mais rápidas</p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <a
+        class="scroll-indicator"
+        href="#sobre"
+        aria-label="Ir para a próxima seção"
+      >
+        <span></span>
+        Explorar
+      </a>
+    </section>
+
+    <section class="section about" id="sobre">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p
+              class="section-eyebrow"
+              id="about-eyebrow"
+            ></p>
+
+            <h2 id="about-title"></h2>
+          </div>
+
+          <span class="section-number">01</span>
+        </div>
+
+        <div class="about__content">
+          <div
+            class="about__text reveal"
+            id="about-text"
+          ></div>
+
+          <div
+            class="stats-grid reveal"
+            id="stats-grid"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="section section--alternative"
+      id="servicos"
+    >
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-eyebrow">
+              O que fazemos
+            </p>
+
+            <h2>
+              Soluções digitais que acompanham
+              o crescimento do seu negócio.
+            </h2>
+          </div>
+
+          <span class="section-number">02</span>
+        </div>
+
+        <div
+          class="services-grid"
+          id="services-grid"
+        ></div>
+      </div>
+    </section>
+
+    <section
+      class="section technologies"
+      id="tecnologias"
+    >
+      <div class="container technologies__content">
+        <div class="technologies__heading reveal">
+          <p class="section-eyebrow">
+            Nossa base tecnológica
+          </p>
+
+          <h2>
+            Ferramentas escolhidas para construir
+            projetos sólidos.
+          </h2>
+
+          <p>
+            Trabalhamos com tecnologias modernas,
+            confiáveis e adequadas para cada etapa
+            do desenvolvimento.
+          </p>
+        </div>
+
+        <div
+          class="technologies-list reveal"
+          id="technologies-list"
+        ></div>
+      </div>
+    </section>
+
+    <section
+      class="section section--alternative"
+      id="projetos"
+    >
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-eyebrow">
+              Projetos selecionados
+            </p>
+
+            <h2>
+              Ideias que se transformaram
+              em produtos digitais.
+            </h2>
+          </div>
+
+          <span class="section-number">03</span>
+        </div>
+
+        <div
+          class="projects-grid"
+          id="projects-grid"
+        ></div>
       </div>
     </section>
 
     <section class="section contact" id="contato">
-      <div class="container contact__content">
-        <div>
-          <p class="section__eyebrow">Contato</p>
-          <h2 class="section__title">Vamos desenvolver algo juntos?</h2>
+      <div class="contact__glow"></div>
 
-          <p class="contact__description">
-            Envie uma mensagem para conversarmos sobre projetos,
-            oportunidades ou novas ideias.
+      <div class="container contact__content">
+        <div class="contact__information reveal">
+          <p class="section-eyebrow">
+            Vamos conversar
           </p>
+
+          <h2>
+            Tem uma ideia?
+            Vamos transformá-la em realidade.
+          </h2>
+
+          <p>
+            Conte um pouco sobre o seu projeto.
+            A Souzas Dev entrará em contato para
+            entender seus objetivos e encontrar
+            a melhor solução.
+          </p>
+
+          <div
+            class="contact-links"
+            id="contact-links"
+          ></div>
         </div>
 
-        <form class="contact-form" id="contact-form">
-          <div class="form-group">
-            <label for="name">Nome</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Digite seu nome"
-              required
-            >
+        <form
+          class="contact-form reveal"
+          id="contact-form"
+          novalidate
+        >
+          <div class="contact-form__heading">
+            <div>
+              <span
+                class="service-status"
+                id="service-status"
+              ></span>
+
+              <p id="service-message">
+                Verificando disponibilidade...
+              </p>
+            </div>
+
+            <strong>&lt;/&gt;</strong>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nome</label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Como podemos chamar você?"
+                minlength="2"
+                maxlength="80"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="voce@exemplo.com"
+                maxlength="254"
+                required
+              >
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="email">E-mail</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="nome@exemplo.com"
-              required
-            >
-          </div>
+            <label for="message">
+              Fale sobre o projeto
+            </label>
 
-          <div class="form-group">
-            <label for="message">Mensagem</label>
             <textarea
               id="message"
               name="message"
-              rows="6"
-              placeholder="Conte um pouco sobre o seu projeto"
+              rows="7"
+              placeholder="Descreva brevemente sua ideia, necessidade ou objetivo..."
+              minlength="10"
+              maxlength="2000"
               required
             ></textarea>
           </div>
 
-          <button class="button button--primary" type="submit">
+          <button
+            class="button button--primary contact-form__button"
+            id="contact-submit"
+            type="submit"
+          >
             Enviar mensagem
+            <span aria-hidden="true">↗</span>
           </button>
 
-          <p class="form-feedback" id="form-feedback" role="status"></p>
+          <p
+            class="form-feedback"
+            id="form-feedback"
+            role="status"
+            aria-live="polite"
+          ></p>
         </form>
       </div>
     </section>
@@ -287,15 +456,47 @@
 
   <footer class="footer">
     <div class="container footer__content">
+      <div>
+        <a
+          class="logo"
+          href="#inicio"
+          aria-label="Souzas Dev — início"
+        >
+          &lt;Dev<span>.</span>&gt;
+        </a>
+
+        <p>
+          Tecnologia para transformar ideias.
+        </p>
+      </div>
+
       <p>
-        &copy; <span id="current-year"></span> Seu Nome.
-        Todos os direitos reservados.
+        © <span id="current-year"></span>
+        Souzas Dev. Todos os direitos reservados.
       </p>
 
-      <a href="#inicio">Voltar ao início</a>
+      <a href="#inicio">
+        Voltar ao topo ↑
+      </a>
     </div>
   </footer>
 
-  <script src="./js/main.js"></script>
+  <a
+    class="whatsapp-button"
+    id="whatsapp-button"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Conversar pelo WhatsApp"
+    hidden
+  >
+    <span>WA</span>
+  </a>
+
+  <script
+    type="module"
+    src="./js/main.js"
+  ></script>
 </body>
 </html>
+
