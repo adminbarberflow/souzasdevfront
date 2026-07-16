@@ -112,49 +112,69 @@
   ],
   projects: [
     {
-      category: "Frontend",
-      title: "Souzas Dev — Interface",
-      icon: "devicon-html5-plain colored",
-      description:
-        "Interface pública, tela de login e painel administrativo desenvolvidos com HTML, CSS e JavaScript puros.",
-      technologies: [
-        "HTML",
-        "CSS",
-        "JavaScript"
+      category: "Projeto autoral em evolução",
+      title: "Souzas Dev",
+      subtitle: "Portfólio e plataforma administrativa",
+      icon: "devicon-javascript-plain colored",
+
+      overview:
+        "A Souzas Dev é um projeto autoral criado para transformar meus estudos em uma aplicação web real, reunindo apresentação profissional, contato com visitantes e gerenciamento administrativo.",
+
+      challenge:
+        "O desafio foi desenvolver uma solução completa sem depender de frameworks no frontend, conectando interface, API, autenticação e banco de dados em uma estrutura organizada.",
+
+      solution:
+        "Desenvolvi um site responsivo com formulário integrado ao backend, área de login protegida e painel administrativo para visualizar e organizar as mensagens recebidas.",
+
+      features: [
+        "Site institucional responsivo",
+        "Formulário conectado à API",
+        "Login administrativo com JWT",
+        "Cookie de autenticação HttpOnly",
+        "Painel de gerenciamento de mensagens",
+        "Status de mensagens novas, lidas e arquivadas",
+        "Banco de dados SQLite",
+        "Frontend e backend em repositórios separados"
       ],
-      codeUrl:
-        "https://github.com/adminbarberflow/souzasdevfront",
-      liveUrl: ""
-    },
-    {
-      category: "Backend",
-      title: "Souzas Dev — API",
-      icon: "devicon-nodejs-plain colored",
-      description:
-        "API em Node.js com formulário de contato, banco SQLite, autenticação JWT e gerenciamento administrativo.",
+
       technologies: [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
         "Node.js",
         "SQLite",
-        "JWT"
+        "JWT",
+        "Git",
+        "GitHub"
       ],
-      codeUrl:
-        "https://github.com/adminbarberflow/souzasdevback",
-      liveUrl: ""
-    },
-    {
-      category: "Em desenvolvimento",
-      title: "Próximo projeto",
-      icon: "devicon-github-original",
-      description:
-        "Um novo projeto está sendo preparado para ampliar o portfólio de soluções desenvolvidas pela Souzas Dev.",
-      technologies: [
-        "Em breve"
+
+      learning: [
+        "Estruturação de uma aplicação frontend sem frameworks",
+        "Criação de uma API utilizando recursos nativos do Node.js",
+        "Integração entre formulário, servidor e banco de dados",
+        "Autenticação com JWT e cookies protegidos",
+        "Organização de código em módulos",
+        "Controle de versões com Git e GitHub"
       ],
-      codeUrl: "",
-      liveUrl: ""
+
+      nextSteps: [
+        "Publicar frontend e backend",
+        "Configurar domínio e HTTPS",
+        "Adicionar proteção antispam",
+        "Criar testes automatizados",
+        "Melhorar acessibilidade e experiência mobile",
+        "Adicionar novos projetos reais ao portfólio"
+      ],
+
+      frontendUrl:
+        "https://github.com/adminbarberflow/souzasdevfront",
+
+      backendUrl:
+        "https://github.com/adminbarberflow/souzasdevback"
     }
   ]
 };
+
 
 
 
