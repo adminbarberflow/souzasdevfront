@@ -13,38 +13,39 @@
   },
 
   hero: {
-    eyebrow: "Desenvolvimento web com propósito",
-    titleStart: "Transformamos ideias em",
-    titleHighlight: "experiências digitais.",
+    eyebrow: "Desenvolvimento web para negócios e projetos digitais",
+    titleStart: "Transformamos necessidades em",
+    titleHighlight: "soluções digitais.",
     description:
-      "Criamos sites, interfaces e aplicações web modernas, responsivas e preparadas para gerar resultados."
+      "Criamos sites, landing pages, sistemas web e APIs personalizadas para apresentar negócios, organizar processos e fortalecer sua presença digital."
   },
 
   about: {
     eyebrow: "Sobre a Souzas Dev",
-    title: "Tecnologia, estratégia e atenção aos detalhes.",
+    title: "Tecnologia aplicada a necessidades reais.",
     paragraphs: [
-      "A Souzas Dev nasceu com o propósito de transformar ideias em produtos digitais profissionais, rápidos e fáceis de usar.",
-      "Desenvolvemos cada projeto com foco em organização, experiência do usuário, desempenho e evolução contínua."
+      "A Souzas Dev é uma marca de desenvolvimento web focada na criação de soluções digitais profissionais, organizadas e fáceis de usar.",
+      "Cada projeto é desenvolvido de acordo com a necessidade do cliente, unindo interface, programação, banco de dados e estratégia em uma solução preparada para crescer.",
+      "Nosso objetivo não é apenas entregar páginas bonitas, mas construir ferramentas que apresentem negócios, facilitem contatos e organizem processos."
     ]
   },
 
   stats: [
     {
-      value: "100%",
-      label: "Responsivo"
+      value: "Responsivo",
+      label: "Experiência adaptada para celular, tablet e computador"
     },
     {
       value: "Full Stack",
-      label: "Frontend e backend"
+      label: "Frontend, backend, APIs e banco de dados"
     },
     {
-      value: "API REST",
-      label: "Integrações"
+      value: "Sob medida",
+      label: "Soluções desenvolvidas conforme cada necessidade"
     },
     {
-      value: "Seguro",
-      label: "Autenticação JWT"
+      value: "Evolutivo",
+      label: "Estrutura preparada para receber novas funcionalidades"
     }
   ],
 
@@ -53,25 +54,25 @@
       number: "01",
       title: "Sites institucionais",
       description:
-        "Sites profissionais para apresentar sua empresa, seus serviços e fortalecer sua presença digital."
+        "Sites profissionais para apresentar sua empresa, seus serviços, seus diferenciais e seus canais de contato."
     },
     {
       number: "02",
       title: "Landing pages",
       description:
-        "Páginas estratégicas, rápidas e focadas em campanhas, geração de contatos e conversões."
+        "Páginas estratégicas para campanhas, produtos, serviços, captação de contatos e oportunidades comerciais."
     },
     {
       number: "03",
       title: "Sistemas web",
       description:
-        "Painéis, áreas administrativas e soluções personalizadas para organizar processos e informações."
+        "Painéis administrativos, áreas restritas e ferramentas personalizadas para organizar processos e informações."
     },
     {
       number: "04",
       title: "APIs e integrações",
       description:
-        "Backends, formulários, bancos de dados e integração entre diferentes sistemas e serviços."
+        "Backends, bancos de dados, autenticação, formulários e comunicação entre diferentes sistemas e serviços."
     }
   ],
 
@@ -113,7 +114,6 @@
       icon: "devicon-npm-original-wordmark colored"
     }
   ],
-
   projects: [
     {
       category: "Frontend",
@@ -159,5 +159,8 @@
     }
   ]
 };
+
+
+
 
 
