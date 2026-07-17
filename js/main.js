@@ -639,9 +639,14 @@ function toggleMenu() {
   );
 }
 
-function closeMenu() {
+function closeMenu(
+  {
+    restoreFocus = false
+  } = {}
+) {
   navigation.classList.remove("active");
   menuButton.classList.remove("active");
+
   document.body.classList.remove(
     "menu-open"
   );
@@ -655,6 +660,65 @@ function closeMenu() {
     "aria-label",
     "Abrir menu"
   );
+
+  if (restoreFocus) {
+    menuButton.focus();
+  }
+}
+
+function handleMenuKeydown(event) {
+  const isOpen =
+    navigation.classList.contains("active");
+
+  if (
+    event.key !== "Escape" ||
+    !isOpen
+  ) {
+    return;
+  }
+
+  closeMenu({
+    restoreFocus: true
+  });
+}
+
+function handleOutsideMenuPointer(event) {
+  const isOpen =
+    navigation.classList.contains("active");
+
+  if (!isOpen) {
+    return;
+  }
+
+  const clickedNavigation =
+    navigation.contains(event.target);
+
+  const clickedMenuButton =
+    menuButton.contains(event.target);
+
+  if (
+    clickedNavigation ||
+    clickedMenuButton
+  ) {
+    return;
+  }
+
+  closeMenu();
+}
+
+function handleMenuResize() {
+  const isDesktop =
+    window.innerWidth > 820;
+
+  const isOpen =
+    navigation.classList.contains("active");
+
+  if (
+    isDesktop &&
+    isOpen
+  ) {
+    closeMenu();
+  }
 }
 
 function updateHeader() {
@@ -910,6 +974,24 @@ function initialize() {
     );
   });
 
+
+  document.addEventListener(
+    "keydown",
+    handleMenuKeydown
+  );
+
+  document.addEventListener(
+    "pointerdown",
+    handleOutsideMenuPointer
+  );
+
+  window.addEventListener(
+    "resize",
+    handleMenuResize,
+    {
+      passive: true
+    }
+  );
   contactForm.addEventListener(
     "submit",
     handleContactSubmit
