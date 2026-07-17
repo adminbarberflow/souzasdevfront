@@ -1,4 +1,4 @@
-﻿export const siteData = {
+export const siteData = {
   brand: "Souzas Dev",
   logo: "<Dev.>",
 
@@ -75,39 +75,57 @@
   technologies: [
     {
       name: "HTML5",
-      icon: "devicon-html5-plain colored"
+      icon: "devicon-html5-plain colored",
+      description:
+        "Estrutura e organiza o conteúdo das páginas."
     },
     {
       name: "CSS3",
-      icon: "devicon-css3-plain colored"
+      icon: "devicon-css3-plain colored",
+      description:
+        "Define estilos, layouts e adaptação responsiva."
     },
     {
       name: "JavaScript",
-      icon: "devicon-javascript-plain colored"
+      icon: "devicon-javascript-plain colored",
+      description:
+        "Adiciona interatividade e comportamento às páginas."
     },
     {
       name: "Node.js",
-      icon: "devicon-nodejs-plain colored"
+      icon: "devicon-nodejs-plain colored",
+      description:
+        "Executa APIs e regras da aplicação no servidor."
     },
     {
       name: "SQLite",
-      icon: "devicon-sqlite-plain colored"
+      icon: "devicon-sqlite-plain colored",
+      description:
+        "Armazena dados em um banco leve e organizado."
     },
     {
       name: "Git",
-      icon: "devicon-git-plain colored"
+      icon: "devicon-git-plain colored",
+      description:
+        "Registra e controla as alterações do código."
     },
     {
       name: "GitHub",
-      icon: "devicon-github-original"
+      icon: "devicon-github-original",
+      description:
+        "Hospeda repositórios e versões dos projetos."
     },
     {
       name: "VS Code",
-      icon: "devicon-vscode-plain colored"
+      icon: "devicon-vscode-plain colored",
+      description:
+        "Editor utilizado para escrever e organizar o código."
     },
     {
       name: "npm",
-      icon: "devicon-npm-original-wordmark colored"
+      icon: "devicon-npm-original-wordmark colored",
+      description:
+        "Gerencia pacotes e comandos dos projetos Node.js."
     }
   ],
   projects: [

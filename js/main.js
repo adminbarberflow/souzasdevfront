@@ -179,13 +179,55 @@ function renderTechnologies() {
   const fragment =
     document.createDocumentFragment();
 
+  const setTechnologyState = (
+    item,
+    isOpen
+  ) => {
+    const description =
+      item.querySelector(
+        ".technology-item__description"
+      );
+
+    item.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    item.setAttribute(
+      "aria-label",
+      `${item.dataset.technology}: ${
+        isOpen
+          ? "ocultar descrição"
+          : "mostrar descrição"
+      }`
+    );
+
+    description.hidden =
+      !isOpen;
+  };
+
   siteData.technologies.forEach(
-    (technology) => {
+    (technology, index) => {
       const item =
         createElement(
-          "article",
+          "button",
           "technology-item"
         );
+
+      item.type = "button";
+
+      item.dataset.technology =
+        technology.name;
+
+      item.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      item.setAttribute(
+        "aria-label",
+        `${technology.name}: mostrar descrição`
+      );
 
       const icon =
         createElement(
@@ -205,7 +247,92 @@ function renderTechnologies() {
           technology.name
         );
 
-      item.append(icon, name);
+      const description =
+        createElement(
+          "span",
+          "technology-item__description",
+          technology.description
+        );
+
+      description.id =
+        `technology-description-${index + 1}`;
+
+      description.hidden =
+        true;
+
+      item.setAttribute(
+        "aria-controls",
+        description.id
+      );
+
+      const toggle =
+        createElement(
+          "span",
+          "technology-item__toggle",
+          "+"
+        );
+
+      toggle.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      item.append(
+        icon,
+        name,
+        description,
+        toggle
+      );
+
+      item.addEventListener(
+        "click",
+        () => {
+          const shouldOpen =
+            item.getAttribute(
+              "aria-expanded"
+            ) !== "true";
+
+          container
+            .querySelectorAll(
+              '.technology-item[aria-expanded="true"]'
+            )
+            .forEach(
+              (openItem) => {
+                setTechnologyState(
+                  openItem,
+                  false
+                );
+              }
+            );
+
+          if (shouldOpen) {
+            setTechnologyState(
+              item,
+              true
+            );
+          }
+        }
+      );
+
+      item.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            event.key === "Escape" &&
+            item.getAttribute(
+              "aria-expanded"
+            ) === "true"
+          ) {
+            setTechnologyState(
+              item,
+              false
+            );
+
+            item.focus();
+          }
+        }
+      );
+
       fragment.append(item);
     }
   );
@@ -243,127 +370,24 @@ function renderProjects() {
   const fragment =
     document.createDocumentFragment();
 
-  const createTextSection = (
-    title,
-    text
-  ) => {
-    const section =
-      createElement(
-        "section",
-        "project-case__text-section"
-      );
-
-    section.append(
-      createElement(
-        "h4",
-        "",
-        title
-      ),
-      createElement(
-        "p",
-        "",
-        text
-      )
-    );
-
-    return section;
-  };
-
-  const createListSection = (
-    title,
-    items
-  ) => {
-    const section =
-      createElement(
-        "section",
-        "project-case__list-section"
-      );
-
-    const list =
-      createElement(
-        "ul",
-        ""
-      );
-
-    items.forEach(
-      (item) => {
-        list.append(
-          createElement(
-            "li",
-            "",
-            item
-          )
-        );
-      }
-    );
-
-    section.append(
-      createElement(
-        "h4",
-        "",
-        title
-      ),
-      list
-    );
-
-    return section;
-  };
-
   siteData.projects.forEach(
     (project) => {
       const article =
         createElement(
           "article",
-          "project-case reveal"
+          "project-preview reveal"
         );
 
-      const header =
-        createElement(
-          "header",
-          "project-case__header"
-        );
-
-      const identity =
+      const visual =
         createElement(
           "div",
-          "project-case__identity"
+          "project-preview__visual"
         );
-
-      const category =
-        createElement(
-          "span",
-          "project-case__category",
-          project.category
-        );
-
-      const titleGroup =
-        createElement(
-          "div",
-          "project-case__title-group"
-        );
-
-      titleGroup.append(
-        createElement(
-          "h3",
-          "",
-          project.title
-        ),
-        createElement(
-          "p",
-          "",
-          project.subtitle
-        )
-      );
-
-      identity.append(
-        category,
-        titleGroup
-      );
 
       const iconWrapper =
         createElement(
           "div",
-          "project-case__icon"
+          "project-preview__icon"
         );
 
       const icon =
@@ -379,120 +403,74 @@ function renderProjects() {
 
       iconWrapper.append(icon);
 
-      header.append(
-        identity,
+      visual.append(
+        createElement(
+          "span",
+          "project-preview__category",
+          project.category
+        ),
         iconWrapper
       );
 
-      const summary =
+      const content =
         createElement(
           "div",
-          "project-case__summary"
-        );
-
-      summary.append(
-        createTextSection(
-          "Visão geral",
-          project.overview
-        ),
-        createTextSection(
-          "Desafio",
-          project.challenge
-        ),
-        createTextSection(
-          "Solução desenvolvida",
-          project.solution
-        )
-      );
-
-      const details =
-        createElement(
-          "div",
-          "project-case__details"
-        );
-
-      details.append(
-        createListSection(
-          "Funcionalidades",
-          project.features
-        ),
-        createListSection(
-          "O que aprendi",
-          project.learning
-        ),
-        createListSection(
-          "Próximas evoluções",
-          project.nextSteps
-        )
-      );
-
-      const technologySection =
-        createElement(
-          "section",
-          "project-case__technologies"
+          "project-preview__content"
         );
 
       const tags =
         createElement(
           "div",
-          "project-case__tags"
+          "project-preview__tags"
         );
 
-      project.technologies.forEach(
-        (technology) => {
-          tags.append(
-            createElement(
-              "span",
-              "",
-              technology
-            )
-          );
-        }
-      );
+      project.technologies
+        .slice(0, 5)
+        .forEach(
+          (technology) => {
+            tags.append(
+              createElement(
+                "span",
+                "",
+                technology
+              )
+            );
+          }
+        );
 
-      technologySection.append(
+      const link =
         createElement(
-          "h4",
+          "a",
+          "project-preview__link",
+          "Ver case completo \u2192"
+        );
+
+      link.href =
+        "./case-souzas-dev.html";
+
+      content.append(
+        tags,
+        createElement(
+          "h3",
           "",
-          "Tecnologias aplicadas"
+          project.title
         ),
-        tags
-      );
-
-      const actions =
         createElement(
-          "div",
-          "project-case__actions"
-        );
-
-      const frontendLink =
-        createProjectLink(
-          "Frontend no GitHub \u2197",
-          project.frontendUrl,
-          "project-link project-link--primary"
-        );
-
-      const backendLink =
-        createProjectLink(
-          "Backend no GitHub \u2197",
-          project.backendUrl,
-          "project-link"
-        );
-
-      if (frontendLink) {
-        actions.append(frontendLink);
-      }
-
-      if (backendLink) {
-        actions.append(backendLink);
-      }
+          "p",
+          "project-preview__subtitle",
+          project.subtitle
+        ),
+        createElement(
+          "p",
+          "project-preview__description",
+          project.overview
+        ),
+        link
+      );
 
       article.append(
-        header,
-        summary,
-        details,
-        technologySection,
-        actions
+        visual,
+        content
       );
 
       fragment.append(article);
