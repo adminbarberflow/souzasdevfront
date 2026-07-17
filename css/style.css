@@ -690,14 +690,6 @@ img {
   line-height: 1.08;
   letter-spacing: -0.05em;
 }
-
-.section-number {
-  color:
-    rgba(255, 255, 255, 0.12);
-  font-family: Consolas, monospace;
-  font-size: 1.1rem;
-}
-
 .about__content {
   display: grid;
   grid-template-columns:
