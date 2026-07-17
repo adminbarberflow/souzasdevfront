@@ -340,29 +340,6 @@ function renderTechnologies() {
   container.replaceChildren(fragment);
 }
 
-function createProjectLink(
-  label,
-  url,
-  className = ""
-) {
-  if (!url) {
-    return null;
-  }
-
-  const link =
-    createElement(
-      "a",
-      className,
-      label
-    );
-
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-
-  return link;
-}
-
 function renderProjects() {
   const container =
     $("#projects-grid");
@@ -1012,7 +989,3 @@ function initialize() {
 }
 
 initialize();
-
-
-
-
