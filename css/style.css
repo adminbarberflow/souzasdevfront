@@ -3070,10 +3070,14 @@ img {
 /* BEGIN: correção do Hero mobile */
 
 @media (max-width: 620px) {
-  .hero__content,
+  .hero__content {
+    min-width: 0;
+  }
+
   .hero__text,
   .hero__visual {
     width: 100%;
+    max-width: 100%;
     min-width: 0;
   }
 
@@ -3091,32 +3095,38 @@ img {
 
   .hero__badge p {
     min-width: 0;
-    font-size: 0.72rem;
-    line-height: 1.4;
+    font-size: 0.68rem;
+    line-height: 1.45;
     white-space: normal;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .hero h1 {
     width: 100%;
     max-width: 100%;
     font-size:
-      clamp(2.65rem, 12.5vw, 3.4rem);
-    letter-spacing: -0.055em;
+      clamp(2.15rem, 11vw, 2.85rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
   }
 
   .hero h1 span,
   .hero h1 strong {
     width: 100%;
     max-width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
   }
 
   .hero__description {
     width: 100%;
     max-width: 100%;
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     line-height: 1.7;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
 
