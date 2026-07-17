@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --background: #080a12;
   --background-soft: #0d101a;
   --surface: #111522;
@@ -2258,3 +2258,383 @@ img {
 
 /* END: seção como trabalho */
 
+/* BEGIN: case completo Souzas Dev */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 64px;
+}
+
+.project-case {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 22, 36, 0.98),
+      rgba(10, 13, 22, 0.98)
+    );
+  box-shadow:
+    0 35px 100px
+    rgba(0, 0, 0, 0.24);
+}
+
+.project-case::before {
+  position: absolute;
+  top: -180px;
+  right: -170px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background:
+    rgba(139, 92, 246, 0.09);
+  content: "";
+  filter: blur(75px);
+  pointer-events: none;
+}
+
+.project-case__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 38px 42px;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(139, 92, 246, 0.17),
+      transparent 32%
+    ),
+    rgba(255, 255, 255, 0.015);
+}
+
+.project-case__identity {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 21px;
+}
+
+.project-case__category {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding-inline: 12px;
+  border: 1px solid
+    rgba(167, 139, 250, 0.3);
+  border-radius: 999px;
+  background:
+    rgba(139, 92, 246, 0.09);
+  color: var(--primary-light);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-case__title-group h3 {
+  font-size:
+    clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.065em;
+}
+
+.project-case__title-group p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size:
+    clamp(0.95rem, 1.6vw, 1.08rem);
+}
+
+.project-case__icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 105px;
+  height: 105px;
+  border: 1px solid
+    rgba(167, 139, 250, 0.25);
+  border-radius: 26px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.14),
+      rgba(56, 189, 248, 0.04)
+    );
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.04);
+}
+
+.project-case__icon i {
+  font-size: 4.8rem;
+  line-height: 1;
+}
+
+.project-case__summary {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+.project-case__text-section {
+  min-width: 0;
+  padding: 34px 32px;
+}
+
+.project-case__text-section:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+.project-case h4 {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-case__text-section p {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.project-case__details {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background:
+    rgba(255, 255, 255, 0.012);
+}
+
+.project-case__list-section {
+  min-width: 0;
+  padding: 34px 32px;
+}
+
+.project-case__list-section:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+.project-case__list-section ul {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.project-case__list-section li {
+  position: relative;
+  padding-left: 21px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.project-case__list-section li::before {
+  position: absolute;
+  top: 0.46em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background:
+    var(--primary-light);
+  box-shadow:
+    0 0 12px
+    rgba(167, 139, 250, 0.5);
+  content: "";
+}
+
+.project-case__technologies {
+  position: relative;
+  z-index: 1;
+  padding: 31px 40px;
+}
+
+.project-case__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.project-case__tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding-inline: 12px;
+  border: 1px solid
+    rgba(139, 92, 246, 0.25);
+  border-radius: 999px;
+  background:
+    rgba(139, 92, 246, 0.055);
+  color: var(--primary-light);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.project-case__actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px;
+  padding:
+    0 40px 38px;
+}
+
+.project-case__actions .project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 47px;
+  padding-inline: 19px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background:
+    rgba(255, 255, 255, 0.025);
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 900;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.project-case__actions
+.project-link:hover {
+  border-color:
+    rgba(167, 139, 250, 0.4);
+  background:
+    rgba(139, 92, 246, 0.08);
+  color: var(--primary-light);
+  transform: translateY(-3px);
+}
+
+.project-case__actions
+.project-link--primary {
+  border-color: transparent;
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary-light),
+      var(--primary-dark)
+    );
+  color: #ffffff;
+  box-shadow:
+    0 15px 35px
+    rgba(109, 40, 217, 0.2);
+}
+
+.project-case__actions
+.project-link--primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #b7a0ff,
+      var(--primary)
+    );
+  color: #ffffff;
+  box-shadow:
+    0 20px 45px
+    rgba(109, 40, 217, 0.3);
+}
+
+@media (max-width: 980px) {
+  .project-case__summary,
+  .project-case__details {
+    grid-template-columns: 1fr;
+  }
+
+  .project-case__text-section:not(:last-child),
+  .project-case__list-section:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-case__text-section,
+  .project-case__list-section {
+    padding: 29px;
+  }
+}
+
+@media (max-width: 620px) {
+  .projects-grid {
+    margin-top: 40px;
+  }
+
+  .project-case {
+    border-radius: 20px;
+  }
+
+  .project-case__header {
+    align-items: flex-start;
+    padding: 27px 22px;
+  }
+
+  .project-case__identity {
+    gap: 16px;
+  }
+
+  .project-case__title-group h3 {
+    font-size: 2.65rem;
+  }
+
+  .project-case__icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+  }
+
+  .project-case__icon i {
+    font-size: 3rem;
+  }
+
+  .project-case__text-section,
+  .project-case__list-section {
+    padding: 25px 22px;
+  }
+
+  .project-case__technologies {
+    padding: 26px 22px;
+  }
+
+  .project-case__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding:
+      0 22px 27px;
+  }
+
+  .project-case__actions .project-link {
+    width: 100%;
+  }
+}
+
+/* END: case completo Souzas Dev */

@@ -1,4 +1,4 @@
-﻿import { siteData } from "./site-data.js";
+import { siteData } from "./site-data.js";
 
 const $ = (selector) =>
   document.querySelector(selector);
@@ -237,36 +237,133 @@ function createProjectLink(
 }
 
 function renderProjects() {
-  const container = $("#projects-grid");
+  const container =
+    $("#projects-grid");
 
   const fragment =
     document.createDocumentFragment();
+
+  const createTextSection = (
+    title,
+    text
+  ) => {
+    const section =
+      createElement(
+        "section",
+        "project-case__text-section"
+      );
+
+    section.append(
+      createElement(
+        "h4",
+        "",
+        title
+      ),
+      createElement(
+        "p",
+        "",
+        text
+      )
+    );
+
+    return section;
+  };
+
+  const createListSection = (
+    title,
+    items
+  ) => {
+    const section =
+      createElement(
+        "section",
+        "project-case__list-section"
+      );
+
+    const list =
+      createElement(
+        "ul",
+        ""
+      );
+
+    items.forEach(
+      (item) => {
+        list.append(
+          createElement(
+            "li",
+            "",
+            item
+          )
+        );
+      }
+    );
+
+    section.append(
+      createElement(
+        "h4",
+        "",
+        title
+      ),
+      list
+    );
+
+    return section;
+  };
 
   siteData.projects.forEach(
     (project) => {
       const article =
         createElement(
           "article",
-          "project-card reveal"
+          "project-case reveal"
         );
 
-      const visual =
+      const header =
+        createElement(
+          "header",
+          "project-case__header"
+        );
+
+      const identity =
         createElement(
           "div",
-          "project-card__visual"
+          "project-case__identity"
         );
 
       const category =
         createElement(
           "span",
-          "project-card__category",
+          "project-case__category",
           project.category
         );
+
+      const titleGroup =
+        createElement(
+          "div",
+          "project-case__title-group"
+        );
+
+      titleGroup.append(
+        createElement(
+          "h3",
+          "",
+          project.title
+        ),
+        createElement(
+          "p",
+          "",
+          project.subtitle
+        )
+      );
+
+      identity.append(
+        category,
+        titleGroup
+      );
 
       const iconWrapper =
         createElement(
           "div",
-          "project-card__icon"
+          "project-case__icon"
         );
 
       const icon =
@@ -282,29 +379,63 @@ function renderProjects() {
 
       iconWrapper.append(icon);
 
-      const visualTitle =
-        createElement(
-          "strong",
-          "project-card__visual-title",
-          project.title
-        );
-
-      visual.append(
-        category,
-        iconWrapper,
-        visualTitle
+      header.append(
+        identity,
+        iconWrapper
       );
 
-      const content =
+      const summary =
         createElement(
           "div",
-          "project-card__content"
+          "project-case__summary"
+        );
+
+      summary.append(
+        createTextSection(
+          "Visão geral",
+          project.overview
+        ),
+        createTextSection(
+          "Desafio",
+          project.challenge
+        ),
+        createTextSection(
+          "Solução desenvolvida",
+          project.solution
+        )
+      );
+
+      const details =
+        createElement(
+          "div",
+          "project-case__details"
+        );
+
+      details.append(
+        createListSection(
+          "Funcionalidades",
+          project.features
+        ),
+        createListSection(
+          "O que aprendi",
+          project.learning
+        ),
+        createListSection(
+          "Próximas evoluções",
+          project.nextSteps
+        )
+      );
+
+      const technologySection =
+        createElement(
+          "section",
+          "project-case__technologies"
         );
 
       const tags =
         createElement(
           "div",
-          "project-card__tags"
+          "project-case__tags"
         );
 
       project.technologies.forEach(
@@ -319,68 +450,49 @@ function renderProjects() {
         }
       );
 
-      const title =
+      technologySection.append(
         createElement(
-          "h3",
+          "h4",
           "",
-          project.title
-        );
-
-      const description =
-        createElement(
-          "p",
-          "",
-          project.description
-        );
+          "Tecnologias aplicadas"
+        ),
+        tags
+      );
 
       const actions =
         createElement(
           "div",
-          "project-card__actions"
+          "project-case__actions"
         );
 
-      const liveLink =
+      const frontendLink =
         createProjectLink(
-          "Ver projeto ↗",
-          project.liveUrl,
+          "Frontend no GitHub \u2197",
+          project.frontendUrl,
           "project-link project-link--primary"
         );
 
-      const codeLink =
+      const backendLink =
         createProjectLink(
-          "Código no GitHub ↗",
-          project.codeUrl,
+          "Backend no GitHub \u2197",
+          project.backendUrl,
           "project-link"
         );
 
-      if (liveLink) {
-        actions.append(liveLink);
+      if (frontendLink) {
+        actions.append(frontendLink);
       }
 
-      if (codeLink) {
-        actions.append(codeLink);
+      if (backendLink) {
+        actions.append(backendLink);
       }
-
-      if (!liveLink && !codeLink) {
-        actions.append(
-          createElement(
-            "span",
-            "project-card__soon",
-            "Em breve"
-          )
-        );
-      }
-
-      content.append(
-        tags,
-        title,
-        description,
-        actions
-      );
 
       article.append(
-        visual,
-        content
+        header,
+        summary,
+        details,
+        technologySection,
+        actions
       );
 
       fragment.append(article);
