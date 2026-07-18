@@ -1,8 +1,10 @@
-﻿const API_URL =
+const API_URL =
   "http://localhost:3000";
 
 const logoutButton =
   document.querySelector("#logout-button");
+
+let csrfToken = "";
 
 const statusFilter =
   document.querySelector("#status-filter");
@@ -43,6 +45,37 @@ const statusLabels = {
   archived: "Arquivada"
 };
 
+function getCsrfTokenFromCookie() {
+  const cookies = document.cookie
+    .split(";")
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  const csrfCookie = cookies.find((item) =>
+    item.startsWith("portfolio_csrf=")
+  );
+
+  if (!csrfCookie) {
+    return "";
+  }
+
+  const value = csrfCookie.split("=")[1];
+
+  return decodeURIComponent(value || "");
+}
+
+async function refreshCsrfToken() {
+  try {
+    const data = await apiRequest(
+      "/api/auth/csrf"
+    );
+
+    csrfToken = data.csrfToken || "";
+  } catch {
+    csrfToken = "";
+  }
+}
+
 async function apiRequest(
   path,
   options = {}
@@ -58,6 +91,12 @@ async function apiRequest(
           ? {
               "Content-Type":
                 "application/json"
+            }
+          : {}),
+
+        ...(csrfToken
+          ? {
+              "X-CSRF-Token": csrfToken
             }
           : {}),
 
@@ -437,6 +476,8 @@ logoutButton.addEventListener(
 
 async function initialize() {
   try {
+    csrfToken = getCsrfTokenFromCookie();
+    await refreshCsrfToken();
     await loadAuthenticatedUser();
     await loadContacts();
   } catch (error) {
