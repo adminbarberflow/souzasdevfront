@@ -2,7 +2,11 @@ export const siteData = {
   brand: "Souzas Dev",
   logo: "<Dev.>",
 
-  apiUrl: "http://localhost:3000",
+  apiUrl: ["localhost", "127.0.0.1"].includes(
+    window.location.hostname
+  )
+    ? "http://localhost:3000"
+    : "https://api.souzasdev.com",
 
   contact: {
     email: "",
