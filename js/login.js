@@ -173,7 +173,7 @@ async function checkExistingSession() {
     await apiRequest("/api/auth/me");
 
     window.location.replace(
-      "./admin.html"
+      "/admin"
     );
   } catch {
     // O usuário ainda não está autenticado.
@@ -247,7 +247,7 @@ loginForm.addEventListener(
       );
 
       window.location.replace(
-        "./admin.html"
+        "/admin"
       );
     } catch (error) {
       showFeedback(

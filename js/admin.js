@@ -119,7 +119,7 @@ async function apiRequest(
   if (!response.ok) {
     if (response.status === 401) {
       window.location.replace(
-        "./login.html"
+        "/login"
       );
     }
 
@@ -456,7 +456,7 @@ async function logout() {
     );
   } finally {
     window.location.replace(
-      "./login.html"
+      "/login"
     );
   }
 }

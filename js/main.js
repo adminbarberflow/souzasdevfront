@@ -423,7 +423,7 @@ function renderProjects() {
         );
 
       link.href =
-        "./case-souzas-dev.html";
+        "/cases/souzas-dev";
 
       content.append(
         tags,
