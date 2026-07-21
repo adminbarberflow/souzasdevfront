@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -60,30 +60,58 @@
           <h1>
             Mensagens recebidas
           </h1>
+
+          <p class="dashboard-description">
+            Acompanhe os contatos enviados pelo site e organize cada atendimento.
+          </p>
         </div>
 
-        <div class="filter">
-          <label for="status-filter">
-            Filtrar
-          </label>
+        <div class="dashboard-controls">
+          <div class="search-control">
+            <label for="message-search">
+              Buscar
+            </label>
 
-          <select id="status-filter">
-            <option value="">
-              Todas
-            </option>
+            <div class="search-field">
+              <span
+                class="search-field__icon"
+                aria-hidden="true"
+              >
+                &#128269;
+              </span>
 
-            <option value="new">
-              Novas
-            </option>
+              <input
+                id="message-search"
+                type="search"
+                placeholder="Nome, e-mail ou mensagem"
+                autocomplete="off"
+              >
+            </div>
+          </div>
 
-            <option value="read">
-              Lidas
-            </option>
+          <div class="filter">
+            <label for="status-filter">
+              Status
+            </label>
 
-            <option value="archived">
-              Arquivadas
-            </option>
-          </select>
+            <select id="status-filter">
+              <option value="">
+                Todas
+              </option>
+
+              <option value="new">
+                Novas
+              </option>
+
+              <option value="read">
+                Lidas
+              </option>
+
+              <option value="archived">
+                Arquivadas
+              </option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -113,6 +141,7 @@
         id="dashboard-feedback"
         class="feedback"
         role="status"
+        aria-live="polite"
       ></p>
 
       <div
