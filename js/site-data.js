@@ -78,58 +78,119 @@ export const siteData = {
   ],
   technologies: [
     {
-      name: "HTML5",
-      icon: "devicon-html5-plain colored",
-      description:
-        "Estrutura e organiza o conteúdo das páginas."
+      category: "Frontend",
+      items: [
+        {
+          name: "HTML5",
+          icon: "devicon-html5-plain colored",
+          description:
+            "Estrutura e organiza o conteúdo das páginas."
+        },
+        {
+          name: "CSS3",
+          icon: "devicon-css3-plain colored",
+          description:
+            "Define estilos, layouts e adaptação responsiva."
+        },
+        {
+          name: "JavaScript",
+          icon: "devicon-javascript-plain colored",
+          description:
+            "Adiciona interatividade e comportamento às páginas."
+        }
+      ]
     },
     {
-      name: "CSS3",
-      icon: "devicon-css3-plain colored",
-      description:
-        "Define estilos, layouts e adaptação responsiva."
+      category: "Backend",
+      items: [
+        {
+          name: "Node.js",
+          icon: "devicon-nodejs-plain colored",
+          description:
+            "Executa a API e as regras da aplicação no servidor."
+        },
+        {
+          name: "API REST",
+          symbol: "API",
+          description:
+            "Conecta frontend e backend por meio de endpoints HTTP."
+        }
+      ]
     },
     {
-      name: "JavaScript",
-      icon: "devicon-javascript-plain colored",
-      description:
-        "Adiciona interatividade e comportamento às páginas."
+      category: "Banco de dados",
+      items: [
+        {
+          name: "PostgreSQL",
+          icon: "devicon-postgresql-plain colored",
+          description:
+            "Banco relacional utilizado para persistência em produção."
+        },
+        {
+          name: "Supabase",
+          image: "https://cdn.simpleicons.org/supabase/3ECF8E?viewbox=auto",
+          description:
+            "Hospeda e gerencia o PostgreSQL utilizado pela aplicação."
+        },
+        {
+          name: "SQLite",
+          icon: "devicon-sqlite-plain colored",
+          description:
+            "Banco leve utilizado no desenvolvimento e nos testes locais."
+        }
+      ]
     },
     {
-      name: "Node.js",
-      icon: "devicon-nodejs-plain colored",
-      description:
-        "Executa APIs e regras da aplicação no servidor."
+      category: "Infraestrutura",
+      items: [
+        {
+          name: "Vercel",
+          image: "https://cdn.simpleicons.org/vercel/FFFFFF?viewbox=auto",
+          description:
+            "Publica e entrega o frontend com deploy contínuo."
+        },
+        {
+          name: "Render",
+          image: "https://cdn.simpleicons.org/render/46E3B7?viewbox=auto",
+          description:
+            "Hospeda e executa a API Node.js em produção."
+        },
+        {
+          name: "Cloudflare",
+          image: "https://cdn.simpleicons.org/cloudflare/F38020?viewbox=auto",
+          description:
+            "Gerencia DNS, SSL, proxy e camadas de segurança."
+        }
+      ]
     },
     {
-      name: "SQLite",
-      icon: "devicon-sqlite-plain colored",
-      description:
-        "Armazena dados em um banco leve e organizado."
-    },
-    {
-      name: "Git",
-      icon: "devicon-git-plain colored",
-      description:
-        "Registra e controla as alterações do código."
-    },
-    {
-      name: "GitHub",
-      icon: "devicon-github-original",
-      description:
-        "Hospeda repositórios e versões dos projetos."
-    },
-    {
-      name: "VS Code",
-      icon: "devicon-vscode-plain colored",
-      description:
-        "Editor utilizado para escrever e organizar o código."
-    },
-    {
-      name: "npm",
-      icon: "devicon-npm-original-wordmark colored",
-      description:
-        "Gerencia pacotes e comandos dos projetos Node.js."
+      category: "Ferramentas",
+      items: [
+        {
+          name: "Git",
+          icon: "devicon-git-plain colored",
+          description:
+            "Registra e controla as alterações do código."
+        },
+        {
+          name: "GitHub",
+          icon: "devicon-github-original",
+          description:
+            "Hospeda os repositórios e integra o fluxo de deploy."
+        },
+        {
+          name: "npm",
+          icon: "devicon-npm-original-wordmark colored",
+          description:
+            "Gerencia dependências e scripts dos projetos Node.js."
+        },
+        {
+          name: "VS Code",
+          icon: "devicon-vscode-plain colored",
+          description:
+            "Editor utilizado para escrever e organizar o código."
+        }
+      ]
     }
   ],
   projects: [

@@ -2340,3 +2340,122 @@ img {
 }
 
 /* END: correção do Hero mobile */
+
+/* BEGIN: tecnologias organizadas por categoria */
+
+.technologies-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 34px;
+}
+
+.technology-group {
+  display: grid;
+  gap: 15px;
+  min-width: 0;
+}
+
+.technology-group__title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  color: var(--primary-light);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.technology-group__title::after {
+  height: 1px;
+  flex: 1;
+  background: var(--border);
+  content: "";
+}
+
+.technology-group__grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(125px, 1fr));
+  gap: 13px;
+}
+
+.technology-item__symbol {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-width: 52px;
+  min-height: 52px;
+  place-items: center;
+  color: var(--primary-light);
+  font-family: inherit;
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  text-shadow:
+    0 8px 18px
+    rgba(139, 92, 246, 0.28);
+  transition:
+    color var(--transition),
+    transform var(--transition);
+}
+
+.technology-item:hover
+.technology-item__symbol,
+.technology-item[aria-expanded="true"]
+.technology-item__symbol {
+  color: #ffffff;
+  transform:
+    translateY(-3px)
+    scale(1.08);
+}
+
+@media (max-width: 680px) {
+  .technologies-list {
+    gap: 28px;
+  }
+
+  .technology-group__grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* END: tecnologias organizadas por categoria */
+
+/* BEGIN: logos remotos das tecnologias */
+
+.technology-item__image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter:
+    drop-shadow(
+      0 8px 18px
+      rgba(139, 92, 246, 0.2)
+    );
+  transition:
+    filter var(--transition),
+    transform var(--transition);
+}
+
+.technology-item:hover
+.technology-item__image,
+.technology-item[aria-expanded="true"]
+.technology-item__image {
+  filter:
+    drop-shadow(
+      0 10px 22px
+      rgba(139, 92, 246, 0.34)
+    );
+  transform:
+    translateY(-3px)
+    scale(1.08);
+}
+
+/* END: logos remotos das tecnologias */

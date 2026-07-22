@@ -179,6 +179,8 @@ function renderTechnologies() {
   const fragment =
     document.createDocumentFragment();
 
+  let technologyIndex = 0;
+
   const setTechnologyState = (
     item,
     isOpen
@@ -206,140 +208,215 @@ function renderTechnologies() {
       !isOpen;
   };
 
+  const createTechnologyItem = (
+    technology
+  ) => {
+    technologyIndex += 1;
+
+    const item =
+      createElement(
+        "button",
+        "technology-item"
+      );
+
+    item.type = "button";
+
+    item.dataset.technology =
+      technology.name;
+
+    item.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    item.setAttribute(
+      "aria-label",
+      `${technology.name}: mostrar descrição`
+    );
+
+    let visual;
+
+    if (technology.icon) {
+      visual = createElement(
+        "i",
+        technology.icon
+      );
+    } else if (technology.image) {
+      visual = createElement(
+        "img",
+        "technology-item__image"
+      );
+
+      visual.src =
+        technology.image;
+
+      visual.alt = "";
+      visual.width = 52;
+      visual.height = 52;
+      visual.loading = "lazy";
+      visual.decoding = "async";
+
+      visual.referrerPolicy =
+        "no-referrer";
+    } else {
+      visual = createElement(
+        "span",
+        "technology-item__symbol",
+        technology.symbol
+      );
+    }
+
+    visual.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    const name =
+      createElement(
+        "strong",
+        "",
+        technology.name
+      );
+
+    const description =
+      createElement(
+        "span",
+        "technology-item__description",
+        technology.description
+      );
+
+    description.id =
+      `technology-description-${technologyIndex}`;
+
+    description.hidden =
+      true;
+
+    item.setAttribute(
+      "aria-controls",
+      description.id
+    );
+
+    const toggle =
+      createElement(
+        "span",
+        "technology-item__toggle",
+        "+"
+      );
+
+    toggle.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    item.append(
+      visual,
+      name,
+      description,
+      toggle
+    );
+
+    item.addEventListener(
+      "click",
+      () => {
+        const shouldOpen =
+          item.getAttribute(
+            "aria-expanded"
+          ) !== "true";
+
+        container
+          .querySelectorAll(
+            '.technology-item[aria-expanded="true"]'
+          )
+          .forEach(
+            (openItem) => {
+              setTechnologyState(
+                openItem,
+                false
+              );
+            }
+          );
+
+        if (shouldOpen) {
+          setTechnologyState(
+            item,
+            true
+          );
+        }
+      }
+    );
+
+    item.addEventListener(
+      "keydown",
+      (event) => {
+        if (
+          event.key === "Escape" &&
+          item.getAttribute(
+            "aria-expanded"
+          ) === "true"
+        ) {
+          setTechnologyState(
+            item,
+            false
+          );
+
+          item.focus();
+        }
+      }
+    );
+
+    return item;
+  };
+
   siteData.technologies.forEach(
-    (technology, index) => {
-      const item =
+    (group, groupIndex) => {
+      const section =
         createElement(
-          "button",
-          "technology-item"
+          "section",
+          "technology-group"
         );
 
-      item.type = "button";
-
-      item.dataset.technology =
-        technology.name;
-
-      item.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      item.setAttribute(
-        "aria-label",
-        `${technology.name}: mostrar descrição`
-      );
-
-      const icon =
+      const title =
         createElement(
-          "i",
-          technology.icon
+          "h3",
+          "technology-group__title",
+          group.category
         );
 
-      icon.setAttribute(
-        "aria-hidden",
-        "true"
+      title.id =
+        `technology-group-${groupIndex + 1}`;
+
+      section.setAttribute(
+        "aria-labelledby",
+        title.id
       );
 
-      const name =
+      const grid =
         createElement(
-          "strong",
-          "",
-          technology.name
+          "div",
+          "technology-group__grid"
         );
 
-      const description =
-        createElement(
-          "span",
-          "technology-item__description",
-          technology.description
-        );
-
-      description.id =
-        `technology-description-${index + 1}`;
-
-      description.hidden =
-        true;
-
-      item.setAttribute(
-        "aria-controls",
-        description.id
-      );
-
-      const toggle =
-        createElement(
-          "span",
-          "technology-item__toggle",
-          "+"
-        );
-
-      toggle.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      item.append(
-        icon,
-        name,
-        description,
-        toggle
-      );
-
-      item.addEventListener(
-        "click",
-        () => {
-          const shouldOpen =
-            item.getAttribute(
-              "aria-expanded"
-            ) !== "true";
-
-          container
-            .querySelectorAll(
-              '.technology-item[aria-expanded="true"]'
+      group.items.forEach(
+        (technology) => {
+          grid.append(
+            createTechnologyItem(
+              technology
             )
-            .forEach(
-              (openItem) => {
-                setTechnologyState(
-                  openItem,
-                  false
-                );
-              }
-            );
-
-          if (shouldOpen) {
-            setTechnologyState(
-              item,
-              true
-            );
-          }
+          );
         }
       );
 
-      item.addEventListener(
-        "keydown",
-        (event) => {
-          if (
-            event.key === "Escape" &&
-            item.getAttribute(
-              "aria-expanded"
-            ) === "true"
-          ) {
-            setTechnologyState(
-              item,
-              false
-            );
-
-            item.focus();
-          }
-        }
+      section.append(
+        title,
+        grid
       );
 
-      fragment.append(item);
+      fragment.append(section);
     }
   );
 
   container.replaceChildren(fragment);
 }
-
 function renderProjects() {
   const container =
     $("#projects-grid");
