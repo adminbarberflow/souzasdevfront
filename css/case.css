@@ -351,3 +351,259 @@
     text-align: center;
   }
 }
+
+/* BEGIN: modernização do case Souzas Dev */
+
+.case-section__lead {
+  max-width: 720px;
+  margin-top: 22px;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.case-hero__stack {
+  display: grid;
+  width: 218px;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.case-hero__stack-item {
+  display: grid;
+  min-height: 103px;
+  place-items: center;
+  border: 1px solid
+    rgba(167, 139, 250, 0.22);
+  border-radius: 25px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.13),
+      rgba(56, 189, 248, 0.035)
+    );
+  box-shadow:
+    0 22px 55px
+    rgba(0, 0, 0, 0.22);
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.case-hero__stack-item:hover {
+  border-color:
+    rgba(167, 139, 250, 0.48);
+  transform: translateY(-4px);
+}
+
+.case-hero__stack-item img {
+  display: block;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  filter:
+    drop-shadow(
+      0 10px 20px
+      rgba(0, 0, 0, 0.24)
+    );
+}
+
+.case-platforms {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.case-platform-card {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.case-platform-card:hover {
+  border-color:
+    rgba(167, 139, 250, 0.35);
+  transform: translateY(-5px);
+}
+
+.case-platform-card__icon {
+  display: grid;
+  width: 74px;
+  height: 74px;
+  place-items: center;
+  border: 1px solid
+    rgba(167, 139, 250, 0.18);
+  border-radius: 20px;
+  background:
+    rgba(139, 92, 246, 0.07);
+}
+
+.case-platform-card__icon img {
+  display: block;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.case-platform-card > span {
+  display: block;
+  margin-top: 25px;
+  color: var(--primary-light);
+  font-family: Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.case-platform-card h3 {
+  margin-top: 10px;
+  font-size: 1.25rem;
+}
+
+.case-platform-card p {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.72;
+}
+
+.case-security-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.case-security-card {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(139, 92, 246, 0.09),
+      rgba(56, 189, 248, 0.025)
+    );
+}
+
+.case-security-card::after {
+  position: absolute;
+  right: -45px;
+  bottom: -60px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background:
+    rgba(139, 92, 246, 0.09);
+  content: "";
+}
+
+.case-security-card > span {
+  color: var(--primary-light);
+  font-family: Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.case-security-card h3 {
+  position: relative;
+  z-index: 1;
+  margin-top: 18px;
+  font-size: 1.2rem;
+}
+
+.case-security-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin-top: 13px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.case-stack-groups {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 48px;
+}
+
+.case-stack-group {
+  min-width: 0;
+  padding: 27px;
+  border: 1px solid var(--border);
+  border-radius: 21px;
+  background: var(--surface);
+}
+
+.case-stack-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.case-stack-group h3::after {
+  height: 1px;
+  flex: 1;
+  background: var(--border);
+  content: "";
+}
+
+.case-stack-group .case-technologies {
+  margin-top: 23px;
+}
+
+@media (max-width: 1050px) {
+  .case-platforms {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .case-hero__stack {
+    width: 200px;
+  }
+
+  .case-security-grid,
+  .case-stack-groups {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .case-hero__stack {
+    width: 100%;
+  }
+
+  .case-hero__stack-item {
+    min-height: 96px;
+  }
+
+  .case-platforms {
+    grid-template-columns: 1fr;
+  }
+
+  .case-platform-card,
+  .case-security-card,
+  .case-stack-group {
+    padding: 24px 21px;
+  }
+}
+
+/* END: modernização do case Souzas Dev */

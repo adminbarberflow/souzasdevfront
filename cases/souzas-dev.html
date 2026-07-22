@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="Conheça o desenvolvimento do site, da API e do painel administrativo da Souzas Dev."
+    content="Conheça a arquitetura, as funcionalidades e as camadas de segurança do portfólio Souzas Dev em produção."
   >
   <!-- BEGIN: SEO base -->
 
@@ -46,7 +46,7 @@
 
   <meta
     property="og:description"
-    content="Conheça o desenvolvimento do site, da API e do painel administrativo da Souzas Dev."
+    content="Conheça a arquitetura, as funcionalidades e as camadas de segurança do portfólio Souzas Dev em produção."
   >
 
   <meta
@@ -61,7 +61,7 @@
 
   <meta
     name="twitter:description"
-    content="Conheça o desenvolvimento do site, da API e do painel administrativo da Souzas Dev."
+    content="Conheça a arquitetura, as funcionalidades e as camadas de segurança do portfólio Souzas Dev em produção."
   >
 
   <link
@@ -131,7 +131,7 @@
       <div class="container case-hero__content">
         <div>
           <p class="case-eyebrow">
-            Projeto autoral em evolução
+            Projeto autoral em produção e evolução
           </p>
 
           <h1>
@@ -139,18 +139,28 @@
           </h1>
 
           <p class="case-hero__subtitle">
-            Portfólio, API e plataforma administrativa.
+            Portfólio, API, painel administrativo e
+            infraestrutura em produção.
           </p>
 
           <p class="case-hero__description">
-            Um projeto criado para transformar estudos em uma
-            aplicação web real, conectando interface, servidor,
-            autenticação e banco de dados.
+            Uma aplicação web autoral que conecta frontend sem
+            framework, API REST em Node.js, PostgreSQL,
+            autenticação administrativa, deploy contínuo e
+            camadas reais de segurança.
           </p>
 
           <div class="case-hero__actions">
             <a
               class="button button--primary"
+              href="/"
+            >
+              Ver site em produção
+              <span aria-hidden="true">&#8599;</span>
+            </a>
+
+            <a
+              class="button button--secondary"
               href="https://github.com/adminbarberflow/souzasdevfront"
               target="_blank"
               rel="noopener noreferrer"
@@ -171,8 +181,54 @@
           </div>
         </div>
 
-        <div class="case-hero__icon" aria-hidden="true">
-          <i class="devicon-javascript-plain colored"></i>
+        <div
+          class="case-hero__stack"
+          role="img"
+          aria-label="Arquitetura com Vercel, Render, Supabase e Cloudflare"
+        >
+          <span class="case-hero__stack-item">
+            <img
+              src="https://cdn.simpleicons.org/vercel/FFFFFF?viewbox=auto"
+              alt=""
+              width="58"
+              height="58"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            >
+          </span>
+
+          <span class="case-hero__stack-item">
+            <img
+              src="https://cdn.simpleicons.org/render/46E3B7?viewbox=auto"
+              alt=""
+              width="58"
+              height="58"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            >
+          </span>
+
+          <span class="case-hero__stack-item">
+            <img
+              src="https://cdn.simpleicons.org/supabase/3ECF8E?viewbox=auto"
+              alt=""
+              width="58"
+              height="58"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            >
+          </span>
+
+          <span class="case-hero__stack-item">
+            <img
+              src="https://cdn.simpleicons.org/cloudflare/F38020?viewbox=auto"
+              alt=""
+              width="58"
+              height="58"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            >
+          </span>
         </div>
       </div>
     </section>
@@ -186,9 +242,9 @@
             <h2>Visão geral</h2>
 
             <p>
-              A Souzas Dev reúne uma Home pública, formulário de
-              contato, tela de autenticação e painel administrativo
-              em uma única solução.
+              A Souzas Dev reúne site público, formulário de
+              contato, autenticação e painel administrativo
+              conectados a uma API própria.
             </p>
           </article>
 
@@ -198,9 +254,9 @@
             <h2>Desafio</h2>
 
             <p>
-              Desenvolver uma aplicação completa sem frameworks no
-              frontend, mantendo o código organizado e conectando
-              diferentes partes do sistema.
+              Construir uma aplicação completa sem frameworks no
+              frontend, integrando diferentes serviços sem perder
+              organização, desempenho e segurança.
             </p>
           </article>
 
@@ -210,9 +266,9 @@
             <h2>Solução</h2>
 
             <p>
-              Um site responsivo integrado a uma API em Node.js,
-              com autenticação administrativa e armazenamento das
-              mensagens em SQLite.
+              Frontend na Vercel, API Node.js no Render,
+              PostgreSQL no Supabase e domínio público protegido
+              e distribuído pela Cloudflare.
             </p>
           </article>
         </div>
@@ -227,8 +283,14 @@
           </p>
 
           <h2>
-            Funcionalidades aplicadas no projeto.
+            Uma aplicação conectada de ponta a ponta.
           </h2>
+
+          <p class="case-section__lead">
+            A interface pública, a administração, a API e o banco
+            de dados foram desenvolvidos como partes independentes,
+            mas integradas em uma única experiência.
+          </p>
         </div>
 
         <div class="case-columns">
@@ -238,9 +300,10 @@
             <ul>
               <li>Site institucional responsivo</li>
               <li>Apresentação de serviços e projetos</li>
-              <li>Formulário conectado à API</li>
-              <li>Validação dos campos do formulário</li>
-              <li>Indicador de disponibilidade do sistema</li>
+              <li>Formulário integrado à API REST</li>
+              <li>Validação e retorno visual dos campos</li>
+              <li>Indicador de disponibilidade da aplicação</li>
+              <li>Case técnico com URL própria</li>
             </ul>
           </article>
 
@@ -249,23 +312,197 @@
 
             <ul>
               <li>Login administrativo protegido</li>
-              <li>Autenticação utilizando JWT</li>
-              <li>Cookie de autenticação HttpOnly</li>
+              <li>Autenticação baseada em JWT</li>
+              <li>Cookie HttpOnly, Secure e SameSite</li>
               <li>Painel de mensagens recebidas</li>
-              <li>Status de mensagens novas, lidas e arquivadas</li>
+              <li>Busca e filtros por situação</li>
+              <li>Status de mensagens e exclusão controlada</li>
             </ul>
           </article>
 
           <article class="case-detail">
-            <h3>Estrutura técnica</h3>
+            <h3>Arquitetura e segurança</h3>
 
             <ul>
-              <li>API desenvolvida com Node.js</li>
-              <li>Banco de dados SQLite</li>
               <li>Frontend e backend separados</li>
-              <li>Organização do código em módulos</li>
-              <li>Controle de versões com Git e GitHub</li>
+              <li>PostgreSQL utilizado em produção</li>
+              <li>SQLite mantido para ambiente local</li>
+              <li>Proteções de CORS e CSRF</li>
+              <li>Rate limiting em rotas sensíveis</li>
+              <li>Headers HTTP e CSP efetiva</li>
             </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="container">
+        <div class="case-heading">
+          <p class="case-eyebrow">
+            Arquitetura em produção
+          </p>
+
+          <h2>
+            Serviços separados, integrados e protegidos.
+          </h2>
+
+          <p class="case-section__lead">
+            Cada camada possui uma responsabilidade clara,
+            reduzindo acoplamento e permitindo evolução,
+            manutenção e deploy independentes.
+          </p>
+        </div>
+
+        <div class="case-platforms">
+          <article class="case-platform-card">
+            <div class="case-platform-card__icon">
+              <img
+                src="https://cdn.simpleicons.org/vercel/FFFFFF?viewbox=auto"
+                alt=""
+                width="54"
+                height="54"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              >
+            </div>
+
+            <span>Frontend</span>
+            <h3>Vercel</h3>
+
+            <p>
+              Hospeda e distribui o frontend estático, com
+              deploy automático a partir do GitHub.
+            </p>
+          </article>
+
+          <article class="case-platform-card">
+            <div class="case-platform-card__icon">
+              <img
+                src="https://cdn.simpleicons.org/render/46E3B7?viewbox=auto"
+                alt=""
+                width="54"
+                height="54"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              >
+            </div>
+
+            <span>Backend</span>
+            <h3>Render</h3>
+
+            <p>
+              Executa a API em Node.js publicada no subdomínio
+              api.souzasdev.com.
+            </p>
+          </article>
+
+          <article class="case-platform-card">
+            <div class="case-platform-card__icon">
+              <img
+                src="https://cdn.simpleicons.org/supabase/3ECF8E?viewbox=auto"
+                alt=""
+                width="54"
+                height="54"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              >
+            </div>
+
+            <span>Banco de dados</span>
+            <h3>Supabase</h3>
+
+            <p>
+              Fornece o PostgreSQL utilizado para persistir
+              mensagens e dados administrativos em produção.
+            </p>
+          </article>
+
+          <article class="case-platform-card">
+            <div class="case-platform-card__icon">
+              <img
+                src="https://cdn.simpleicons.org/cloudflare/F38020?viewbox=auto"
+                alt=""
+                width="54"
+                height="54"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              >
+            </div>
+
+            <span>Entrega e proteção</span>
+            <h3>Cloudflare</h3>
+
+            <p>
+              Gerencia DNS, HTTPS, proxy do site público,
+              mitigação DDoS e regras de proteção.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-section--alternative">
+      <div class="container">
+        <div class="case-heading">
+          <p class="case-eyebrow">
+            Segurança aplicada
+          </p>
+
+          <h2>
+            Proteção distribuída em diferentes camadas.
+          </h2>
+
+          <p class="case-section__lead">
+            A segurança não depende de uma única ferramenta.
+            Navegador, aplicação, autenticação, infraestrutura e
+            banco de dados possuem controles próprios.
+          </p>
+        </div>
+
+        <div class="case-security-grid">
+          <article class="case-security-card">
+            <span>01</span>
+            <h3>Transporte seguro</h3>
+
+            <p>
+              HTTPS obrigatório, TLS moderno, HSTS e conexão
+              criptografada entre os serviços.
+            </p>
+          </article>
+
+          <article class="case-security-card">
+            <span>02</span>
+            <h3>Proteção no navegador</h3>
+
+            <p>
+              Content Security Policy, bloqueio de frames,
+              proteção contra MIME sniffing e políticas de origem.
+            </p>
+          </article>
+
+          <article class="case-security-card">
+            <span>03</span>
+            <h3>Autenticação</h3>
+
+            <p>
+              JWT em cookie protegido, defesa contra CSRF,
+              CORS restrito e limite de tentativas.
+            </p>
+          </article>
+
+          <article class="case-security-card">
+            <span>04</span>
+            <h3>Perímetro</h3>
+
+            <p>
+              Cloudflare no site público, mitigação DDoS e
+              desafio gerenciado para a área administrativa.
+            </p>
           </article>
         </div>
       </div>
@@ -275,26 +512,28 @@
       <div class="container case-learning">
         <div>
           <p class="case-eyebrow">
-            Aprendizado
+            Evolução
           </p>
 
           <h2>
-            Conhecimento aplicado em um projeto real.
+            De exercício local a sistema publicado.
           </h2>
         </div>
 
         <div class="case-learning__content">
           <p>
-            Este projeto permitiu praticar a integração entre
-            interface, servidor e banco de dados, além de aprofundar
-            conhecimentos sobre autenticação, APIs e organização
-            de aplicações web.
+            O projeto começou como uma prática de HTML, CSS e
+            JavaScript e evoluiu para uma arquitetura composta
+            por frontend, API, autenticação, banco de dados e
+            painel administrativo.
           </p>
 
           <p>
-            A Souzas Dev continua em evolução. Novas funcionalidades,
-            melhorias de acessibilidade, testes e a publicação em
-            produção fazem parte dos próximos passos.
+            A transição do SQLite local para PostgreSQL em
+            produção, a separação dos deploys e o endurecimento
+            das configurações de segurança transformaram o
+            portfólio em uma aplicação real e continuamente
+            aprimorada.
           </p>
         </div>
       </div>
@@ -308,19 +547,77 @@
           </p>
 
           <h2>
-            Ferramentas utilizadas no desenvolvimento.
+            Uma stack organizada por responsabilidade.
           </h2>
         </div>
 
-        <div class="case-technologies">
-          <span>HTML5</span>
-          <span>CSS3</span>
-          <span>JavaScript</span>
-          <span>Node.js</span>
-          <span>SQLite</span>
-          <span>JWT</span>
-          <span>Git</span>
-          <span>GitHub</span>
+        <div class="case-stack-groups">
+          <section class="case-stack-group">
+            <h3>Frontend</h3>
+
+            <div class="case-technologies">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+          </section>
+
+          <section class="case-stack-group">
+            <h3>Backend</h3>
+
+            <div class="case-technologies">
+              <span>Node.js</span>
+              <span>API REST</span>
+              <span>JOSE</span>
+              <span>JWT</span>
+            </div>
+          </section>
+
+          <section class="case-stack-group">
+            <h3>Banco de dados</h3>
+
+            <div class="case-technologies">
+              <span>PostgreSQL</span>
+              <span>Supabase</span>
+              <span>SQLite</span>
+              <span>SQL</span>
+            </div>
+          </section>
+
+          <section class="case-stack-group">
+            <h3>Infraestrutura</h3>
+
+            <div class="case-technologies">
+              <span>Vercel</span>
+              <span>Render</span>
+              <span>Cloudflare</span>
+            </div>
+          </section>
+
+          <section class="case-stack-group">
+            <h3>Segurança</h3>
+
+            <div class="case-technologies">
+              <span>CSP</span>
+              <span>CSRF</span>
+              <span>CORS</span>
+              <span>HSTS</span>
+              <span>TLS</span>
+              <span>Rate limiting</span>
+            </div>
+          </section>
+
+          <section class="case-stack-group">
+            <h3>Ferramentas</h3>
+
+            <div class="case-technologies">
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>npm</span>
+              <span>VS Code</span>
+              <span>PowerShell</span>
+            </div>
+          </section>
         </div>
       </div>
     </section>
