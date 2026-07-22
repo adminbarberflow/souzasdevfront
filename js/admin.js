@@ -9,9 +9,13 @@ const logoutButton =
   document.querySelector("#logout-button");
 
 let csrfToken = "";
+let loadedContacts = [];
 
 const statusFilter =
   document.querySelector("#status-filter");
+
+const messageSearch =
+  document.querySelector("#message-search");
 
 const messagesContainer =
   document.querySelector(
@@ -381,6 +385,36 @@ function createMessageCard(contact) {
   return article;
 }
 
+function normalizeSearchText(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("pt-BR")
+    .trim();
+}
+
+function getVisibleContacts() {
+  const searchTerm = normalizeSearchText(
+    messageSearch.value
+  );
+
+  if (!searchTerm) {
+    return loadedContacts;
+  }
+
+  return loadedContacts.filter((contact) => {
+    return [
+      contact.name,
+      contact.email,
+      contact.message
+    ].some((value) =>
+      normalizeSearchText(value).includes(
+        searchTerm
+      )
+    );
+  });
+}
+
 function renderContacts(contacts) {
   messagesContainer.replaceChildren();
 
@@ -426,8 +460,10 @@ async function loadContacts() {
     `/api/admin/contacts${query}`
   );
 
+  loadedContacts = data.contacts;
+
   updateStats(data.stats);
-  renderContacts(data.contacts);
+  renderContacts(loadedContacts);
   showFeedback("");
 }
 
@@ -460,6 +496,13 @@ async function logout() {
     );
   }
 }
+
+messageSearch.addEventListener(
+  "input",
+  () => {
+    renderContacts(getVisibleContacts());
+  }
+);
 
 statusFilter.addEventListener(
   "change",
