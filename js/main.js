@@ -424,6 +424,35 @@ function renderProjects() {
   const fragment =
     document.createDocumentFragment();
 
+  const createProjectLink = ({
+    project,
+    label,
+    href,
+    className,
+    external = false
+  }) => {
+    const link =
+      createElement(
+        "a",
+        className,
+        label
+      );
+
+    link.href = href;
+
+    if (external) {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+
+      link.setAttribute(
+        "aria-label",
+        `${label} de ${project.title} em nova aba`
+      );
+    }
+
+    return link;
+  };
+
   siteData.projects.forEach(
     (project) => {
       const article =
@@ -438,33 +467,64 @@ function renderProjects() {
           "project-preview__visual"
         );
 
-      const iconWrapper =
-        createElement(
-          "div",
-          "project-preview__icon"
-        );
-
-      const icon =
-        createElement(
-          "i",
-          project.icon
-        );
-
-      icon.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      iconWrapper.append(icon);
-
-      visual.append(
+      const category =
         createElement(
           "span",
           "project-preview__category",
           project.category
-        ),
-        iconWrapper
-      );
+        );
+
+      visual.append(category);
+
+      if (project.coverImage) {
+        article.classList.add(
+          "project-preview--with-cover"
+        );
+
+        visual.classList.add(
+          "project-preview__visual--cover"
+        );
+
+        const image =
+          createElement(
+            "img",
+            "project-preview__image"
+          );
+
+        image.src =
+          project.coverImage;
+
+        image.alt =
+          project.coverAlt ??
+          `Imagem de capa do projeto ${project.title}`;
+
+        image.width = 1200;
+        image.height = 750;
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        visual.append(image);
+      } else {
+        const iconWrapper =
+          createElement(
+            "div",
+            "project-preview__icon"
+          );
+
+        const icon =
+          createElement(
+            "i",
+            project.icon
+          );
+
+        icon.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        iconWrapper.append(icon);
+        visual.append(iconWrapper);
+      }
 
       const content =
         createElement(
@@ -492,15 +552,49 @@ function renderProjects() {
           }
         );
 
-      const link =
+      const actions =
         createElement(
-          "a",
-          "project-preview__link",
-          "Ver case completo \u2192"
+          "div",
+          "project-preview__actions"
         );
 
-      link.href =
-        "/cases/souzas-dev";
+      if (project.demoUrl) {
+        actions.append(
+          createProjectLink({
+            project,
+            label: "Ver projeto",
+            href: project.demoUrl,
+            className:
+              "project-preview__link",
+            external: true
+          })
+        );
+      }
+
+      const fallbackCaseUrl =
+        project.title === "Souzas Dev"
+          ? "/cases/souzas-dev"
+          : "";
+
+      const caseUrl =
+        project.caseUrl ??
+        fallbackCaseUrl;
+
+      if (caseUrl) {
+        actions.append(
+          createProjectLink({
+            project,
+            label: project.demoUrl
+              ? "Conhecer o case"
+              : "Ver case completo",
+            href: caseUrl,
+            className:
+              project.demoUrl
+                ? "project-preview__case-link"
+                : "project-preview__link"
+          })
+        );
+      }
 
       content.append(
         tags,
@@ -519,7 +613,7 @@ function renderProjects() {
           "project-preview__description",
           project.overview
         ),
-        link
+        actions
       );
 
       article.append(
@@ -533,7 +627,6 @@ function renderProjects() {
 
   container.replaceChildren(fragment);
 }
-
 function createContactLink(
   label,
   value,

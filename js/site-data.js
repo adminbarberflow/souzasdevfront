@@ -200,6 +200,12 @@ export const siteData = {
       subtitle: "Portfólio e plataforma administrativa",
       icon: "devicon-javascript-plain colored",
 
+      coverImage:
+        "/assets/images/projects/souzas-dev.webp",
+
+      coverAlt:
+        "Página inicial do projeto Souzas Dev",
+
       overview:
         "A Souzas Dev é um projeto autoral criado para transformar meus estudos em uma aplicação web real, reunindo apresentação profissional, contato com visitantes e gerenciamento administrativo.",
 
@@ -254,6 +260,78 @@ export const siteData = {
 
       backendUrl:
         "https://github.com/adminbarberflow/souzasdevback"
+    },
+    {
+      slug: "cafeteria-conceito",
+      category: "Website institucional / Cardápio digital",
+      title: "Cafeteria Conceito",
+      subtitle: "Experiência digital para uma cafeteria fictícia",
+      status: "Projeto concluído",
+      year: "2026",
+
+      coverImage:
+        "/assets/images/projects/cafeteria-conceito.webp",
+
+      coverAlt:
+        "Página inicial do projeto Cafeteria Conceito",
+
+      overview:
+        "Site conceitual de uma cafeteria, desenvolvido com foco em uma experiência minimalista, responsiva e agradável para apresentação de produtos e cardápio digital.",
+
+      complementaryDescription:
+        "Uma experiência digital clean e elegante para uma cafeteria fictícia, com cardápio interativo, filtros por categoria, informações institucionais e localização ilustrativa.",
+
+      challenge:
+        "Criar uma página que transmitisse a sensação de uma cafeteria moderna e acolhedora sem utilizar excesso de elementos, cores ou animações. O cardápio precisava ser fácil de consultar e funcionar bem em diferentes tamanhos de tela.",
+
+      solution:
+        "Foi desenvolvida uma interface minimalista, com tipografia editorial, paleta inspirada em tons de café e bastante espaço visual. O cardápio é renderizado dinamicamente com JavaScript e pode ser filtrado por categorias.",
+
+      features: [
+        "Cardápio digital",
+        "Filtros de produtos",
+        "Layout responsivo",
+        "Menu mobile",
+        "Informações institucionais",
+        "Mapa ilustrativo",
+        "Navegação por âncoras",
+        "Tratamento de falhas no carregamento das imagens",
+        "Boas práticas básicas de acessibilidade"
+      ],
+
+      technologies: [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Git",
+        "GitHub",
+        "GitHub Pages"
+      ],
+
+      highlights: [
+        "Desenvolvimento mobile-first",
+        "Layout totalmente responsivo",
+        "Identidade visual minimalista",
+        "Cardápio digital dinâmico",
+        "Filtros por categoria",
+        "Produtos renderizados com JavaScript",
+        "Imagens otimizadas e armazenadas localmente",
+        "Navegação acessível",
+        "Localização fictícia e mapa ilustrativo",
+        "Publicação automatizada pelo GitHub Pages"
+      ],
+
+      result:
+        "O resultado é uma demonstração leve, responsiva e profissional, preparada para representar uma solução real que poderia ser adaptada para cafeterias, restaurantes e outros negócios do setor alimentício.",
+
+      demoUrl:
+        "https://adminbarberflow.github.io/cafeteria-frontend/",
+
+      codeUrl:
+        "https://github.com/adminbarberflow/cafeteria-frontend",
+
+      caseUrl:
+        "/cases/cafeteria-conceito"
     }
   ]
 };
